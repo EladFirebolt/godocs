@@ -12,13 +12,17 @@ parent: Configure SSO
 To use a SAML 2.0 compliant service or application as your IDP for single sign on (SSO) with Firebolt, complete the following steps:
 1. In the service/application interface, define a custom SHA-256 application for Firebolt. Follow the specific instructions of the service/application in order to define such a custom application.
 2. In the interface, create a user for each end-user that needs to access Firebolt. When creating the users, make sure to specify the email address for each of those users. Firebolt uses those email addresses to create the corresponding logins in Firebolt. See [setting up SSO](sso.md) for more information.
-3. Obtain values for Audience URI and ACS (Consumer) URL to use in the IDP setup from Firebolt support team. 
+3. Obtain values for Audience URI and ACS (Consumer) URL to use in the IDP setup. 
 
     IMPORTANT: The SSO authentication will not work if these values are not setup properly in your IDP.
     
     If, for instance your organization name is `acmeorg` and provider name you specify is `custom`:
     - Example of ACS URL: `https://id.app.firebolt.io/login/callback?connection=acmeorg-custom&organization=<organization_identifier>`
     - Example of Audience URI: `urn:auth0:firebolt-app-v2:acmeorg-custom`
+
+    > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
+    > **`<provider>`** represents the provider we're configuring as our IdP.
+    > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
 
         {: .note} 
         The **Audience URI**, or Audience Restriction, determines the intended recipient or audience for the SAML Assertion. Depending on the vendor, this field might also be referred to as the **"Entity ID"**. 
