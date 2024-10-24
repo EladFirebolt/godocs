@@ -9,7 +9,7 @@ parent: Configure SSO
 
 # Salesforce
 
-### Configure Salesforce application
+#### Configure Salesforce application
 
 1. In Salesforce, search for the 'Identity provider' setting. Make sure that 'Identity Provider Setup' is enabled. You can use default certificate. 
 
@@ -37,7 +37,10 @@ For example:
 
 9. Keep **Subject Type** as Username, and **Name ID Format** as unspecified. Click **Save**.
 
-#### UI
+#### Configure Firebolt 
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+
+##### UI
 1. To configure the Firebolt SSO integration with Salesforce via the UI, Navigate to **Configure > SSO** in Firebolt. 
 
 2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
@@ -61,7 +64,7 @@ For example:
       where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
 3. Choose **Update changes**
 
-#### SQL
+##### SQL
 
 Values for SQL to create the SSO connection are as follows:
 ```sql

@@ -9,7 +9,7 @@ parent: Configure SSO
 
 # PingFederate (Ping Identity)
 
-### Configure PingFederate application
+#### Configure PingFederate application
 
 1. Click **Connections / Applications** in the administration menu. Then on the **Applications** page click **+** to create a new application. 
 2. Type in the application name (for instance, Firebolt) and description. THen select **SAML Application**, and click **Configure**.
@@ -36,7 +36,10 @@ parent: Configure SSO
     - Save the value of Single SignOn Service
 6. Open the **Attribute Mappings** tab, and edit the saml_subject to map to Email Address. Then **Save**.
 
-#### UI
+#### Configure Firebolt 
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+
+##### UI
 1. To configure the Firebolt SSO integration with PingFederate via the UI, Navigate to **Configure > SSO** in Firebolt. 
 
 2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
@@ -60,7 +63,7 @@ parent: Configure SSO
       where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
 3. Choose **Update changes**
 
-#### SQL
+##### SQL
 
 ### Example - Firebolt organization configuration to work with PingFederate
 Values for SQL to create the SSO connection are as follows:

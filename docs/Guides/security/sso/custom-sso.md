@@ -9,6 +9,8 @@ parent: Configure SSO
 
 # Custom Identity Provider
 
+#### Configure Custom Identity Provider
+
 To use a SAML 2.0 compliant service or application as your IDP for single sign on (SSO) with Firebolt, complete the following steps:
 1. In the service/application interface, define a custom SHA-256 application for Firebolt. Follow the specific instructions of the service/application in order to define such a custom application.
 2. In the interface, create a user for each end-user that needs to access Firebolt. When creating the users, make sure to specify the email address for each of those users. Firebolt uses those email addresses to create the corresponding logins in Firebolt. See [setting up SSO](sso.md) for more information.
@@ -32,7 +34,10 @@ To use a SAML 2.0 compliant service or application as your IDP for single sign o
 {: .note}
 With this information in hand, you're now ready to integrate your Identity Provider with Firebolt. 
 
-#### UI
+#### Configure Firebolt 
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+
+##### UI
 1. To configure the Firebolt SSO integration via the UI, Navigate to **Configure > SSO** in Firebolt. 
 2. Enter the following information:
 - ```signOnUrl```: The sign-on URL, provided by the SAML identity provider, to which Firebolt sends the SAML requests. The URL is IdP-specific and is determined by the identity provider during configuration. For example, using Okta as an identity provider, the URL might look like: `https://okta_account_name.okta.com/app/okta_firebolt_app_id/sso/saml` 
@@ -54,7 +59,7 @@ With this information in hand, you're now ready to integrate your Identity Provi
       where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
 3. Choose **Update changes**.
 
-#### SQL
+##### SQL
 
 To create your SSO connection in Firebolt, you can use the following SQL as an example:
 ```sql

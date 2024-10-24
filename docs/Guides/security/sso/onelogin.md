@@ -9,7 +9,7 @@ parent: Configure SSO
 
 # OneLogin
 
-### Configure OneLogin application
+#### Configure OneLogin application
 
 1. In OneLogin, open **Dashboard**, and click **Apps > Add Apps**.
 2. Search for **SAML**, and select **SAML Test Connector (IdP w/attr)**.
@@ -64,7 +64,10 @@ This corresponds to the following setup in OneLogin, where name/surname in OneLo
 <img src="../../../assets/images/onelogexample1.png" alt="Edit first name" width="500"/>
 
 
-#### UI
+#### Configure Firebolt
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+
+##### UI
 1. To configure the Firebolt SSO integration with OneLogin via the UI, Navigate to **Configure > SSO** in Firebolt. 
 
 2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
@@ -88,7 +91,7 @@ This corresponds to the following setup in OneLogin, where name/surname in OneLo
       where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
 3. Choose **Update changes**
 
-#### SQL
+##### SQL
 
 To create your SSO connection in Firebolt, you can use the following SQL as an example:
 ```sql

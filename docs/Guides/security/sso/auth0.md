@@ -8,6 +8,9 @@ parent: Configure SSO
 ---
 
 # Auth0
+
+#### Configure Auth0 application
+
 1. In the Auth0 Admin Console, navigate to **Applications > Applications** in the lefthand bar
 2. Click **Create Application**. 
 3. Specify a name for your Application. **Select Regular Web Application** as the Application Type. Click **Create the Application**
@@ -26,7 +29,10 @@ parent: Configure SSO
 10. In the pop-up modal, Navigate to Settings. Scroll all the way down and click Enable to enable the SSO via SAML2.0 on the IdP.
 11. You can now configure Firebolt to use Auth0 as your IdP. 
 
-#### UI
+#### Configure Firebolt 
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+
+##### UI
 1. To configure the Firebolt SSO integration with Auth0 via the UI, Navigate to **Configure > SSO** in Firebolt. 
 
 2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
@@ -50,7 +56,7 @@ parent: Configure SSO
       where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
 3. Choose **Update changes**
 
-#### SQL
+##### SQL
 
 To create your SSO connection in Firebolt, you can use the following SQL as an example:
 ```sql
