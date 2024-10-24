@@ -17,11 +17,15 @@ parent: Configure SSO
     -  **Single sign-on URL.** 
    
     This URL has the following format `https://id.app.firebolt.io/login/callback?connection=<org_name>-<provider>&organization=<organization_identifier>` 
-    
-    Contact Firebolt to get your organization_identifier. 
-    
+
+    > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
+    > **`<provider>`** represents the provider we're configuring as our IdP.
+    > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
+
+        
     **Example:** https://id.app.firebolt.io/login/callback?connection=vsko-okta&organization=org_82u3nzTNQPA8RyoM
     - **Audience URI (SP Entity ID).** 
+    
    
     This URI has the following format: `urn:auth0:<tenant_name>:<org_name>-<provider>`, where `<tenant_name>` is app-firebolt-v2, `<org_name>` is the name of organization provider and `<provider>` is the provider value set in Firebolt configuration step. 
 

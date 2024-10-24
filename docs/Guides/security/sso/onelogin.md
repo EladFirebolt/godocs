@@ -19,7 +19,11 @@ parent: Configure SSO
 6. Open the **Configuration** tab and fill in the following values:
     - **Audience** - a URI in the following format: `urn:auth0:<tenant_name>:<org_name>-<provider>`, where `<tenant_name>` is app-firebolt-v2, `<org_name>` is the name of organization, and `<provider>` is the provider value set in Firebolt configuration step. **Example:** `urn:auth0:app-firebolt-v2:vsko2-onelogin`
     - **ACS (Consumer) URL Validator** - a valid regular expression. This field is used to ensure OneLogin posts the response to the correct URL, and it validates the ACS URL field.
-    - **ACS (Consumer) URL and Recipient** - the post-back URL for your organization. This is the url in the following format: `https://id.app.firebolt.io/login/callback?connection=<organization_name>-<provider>&organization=<organization_identifier>`. The organization_identifier is needed to select the correct organization during redirects. The authentication flow will fail if this is provided incorrectly or not provided. Contact the Firebolt support team to retrieve your organization_identifier. **Example:** https://id.app.firebolt.io/login/callback?connection=vsko2-onelogin&organization=org_82u3nzTNQPA8RyoM
+    - **ACS (Consumer) URL and Recipient** - the post-back URL for your organization. This is the url in the following format: `https://id.app.firebolt.io/login/callback?connection=<organization_name>-<provider>&organization=<organization_identifier>`. The organization_identifier is needed to select the correct organization during redirects. The authentication flow will fail if this is provided incorrectly or not provided. **Example:** https://id.app.firebolt.io/login/callback?connection=vsko2-onelogin&organization=org_82u3nzTNQPA8RyoM
+        > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
+        > **`<provider>`** represents the provider we're configuring as our IdP.
+        > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
+
 
 
 ### Example - Firebolt organization configuration to work with OneLogin

@@ -14,9 +14,15 @@ parent: Configure SSO
 1. Click **Connections / Applications** in the administration menu. Then on the **Applications** page click **+** to create a new application. 
 2. Type in the application name (for instance, Firebolt) and description. THen select **SAML Application**, and click **Configure**.
 3. Choose **Manually Enter** to provide application metadata. 
-    - Fill the **ACS URLs** field with a URL in the following format (contact Firebolt to get your organization_identifier): 
+    - Fill the **ACS URLs** field with a URL in the following format: 
     `https://id.app.firebolt.io/login/callback?connection=<organization_name>-<provider>&organization=<organization_identifier>`
     For example: `https://id.app.firebolt.io/login/callback?connection=acmeorg-pingfederate&organization=org_82u3nzTNQPA8RyoM`
+    > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
+    > **`<provider>`** represents the provider we're configuring as our IdP.
+    > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
+
+
+
     - Fill in **Entity ID** with the value: `urn:auth0:firebolt-app-v2:<organization_name>-<provider>`, 
     where
     - ```<organization_name>``` is the name of the organization in Firebolt, and 
