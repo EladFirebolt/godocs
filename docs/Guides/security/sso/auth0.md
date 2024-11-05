@@ -9,40 +9,54 @@ parent: Configure SSO
 
 # Auth0
 
+[Auth0](https://auth0.com/) is an identity management platform that provides authentication and authorization services for applications. Auth0 supports implementing secure login systems with authentication methods including Single-sign on (SS0). To integrate Auth0 with Firebolt's platform, you need to configure both an Auth0 application for Firebolt and Firebolt's SSO for Auth0. Detailed instructions can be found in the following sections:
+
 #### Configure Auth0 application
 
-1. In the Auth0 Admin Console, navigate to **Applications > Applications** in the lefthand bar
-2. Click **Create Application**. 
-3. Specify a name for your Application. **Select Regular Web Application** as the Application Type. Click **Create the Application**
-4. Once created, **Navigate to the Settings Page**. **Scroll down to the Application URIs** section. 
-5. In the Application Login URI field, **Provide a Login URI** by entering your Firebolt Org Address, followed by ```/login?```. For example, ```https://staging-go.firebolt.io/login?```
-6. In the Allowed Callback URLs field, **Provide a Callback URL**. The URL has the following format: `https://id.app.firebolt.io/login/callback?connection=<org_name>-<provider>&organization=<organization_identifier>`. For example, `https://id.app.firebolt.io/login/callback?connection=firebolt-staging-auth0&organization=org_UJhpsQ5ypXVU8JVB`
+1. Login to your Auth0 Dashboard. If you don't yet have an account with Auth0, you can [sign up](https://auth0.com/signup) to access their services.
+2. Select **Applications** from the left navigation panel.
+3. Select **Applications** again.
+4. Select the **+ Create Application** button. 
+5. Under **Name**, enter a name for your application. 
+6. In the dropdown list under **Application Type**, select **Regular Web Application**.
+7. Select **Create the Application**.
+8. Once your application is created, it will appear under **Applications**. Select the three horizontal dots (...) next to your application's name, and select **Settings** from the dropdown list.
+9. Navigate to the **Application URIs** section. 
+10. In the textbox under **Application Login URI**, enter your Firebolt organization URL address, followed by ```/login?```. For example, ```https://staging-go.firebolt.io/login?```.
+11. In the textbox under **Allowed Callback URLs** field, provide a callback URL with the following format: `https://id.app.firebolt.io/login/callback?connection=<org_name>-<provider>&organization=<organization_identifier>`. For example, `https://id.app.firebolt.io/login/callback?connection=firebolt-staging-auth0&organization=org_UJhpsQ5ypXVU8JVB`. The following apply:
+    * **`<org_name>`** - the organizational name used to create your Firebolt account referenced in your vanity URL.  
+    * **`<provider>`** - the provider, `Auth0`.  
+    * **`<organization_identifier>`** - the unique identifier for your organization in Firebolt. To retrieve your **`<organization_identifier>`**, do the following:
+        
+        1. Login to the [Firebolt Workspace](https://go.firebolt.io/signup).
+        2. Select the **Configure** icon (<img src="../../../assets/images/configure-icon.png" alt="The Firebolt Configure Space icon." width="30">).
+        3. Select **SSO** from the left navigation pane.
+        4. Select **Copy organization SSO identifier**. 
 
-    > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
-    > **`<provider>`** represents the provider we're configuring as our IdP. In this case, it's Auth0.  
-    > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
+12. Save the configuration. 
+13. Select the **Addons** tab at the top of the application work area.
+14. Toggle **SAML2 WEB APP**. 
+15. In the **Usage** tab, copy the ```Identity Provider Login URL``` and select **Download Auth0 certificate**. These are needed to configuring Firebolt to work with the Auth0 IdP.
+16. Select the **Settings** tab. 
+17. Select **Enable** to enable the SSO via SAML2.0 on the IdP. You are now ready to configure Firebolt to use Auth0 as your IdP. 
 
+#### Configure Firebolt to integrate with Auth0
 
-7. Save the Configuration. Scroll back up & navigate to the **Addons Page**.
-8. Under Addons, toggle **SAML2 WEB APP** 
-9. In the pop-up modal, under Usage, take note of the ```Identity Provider Login URL``` &  download the Identity Provider Certificate. These will be needed when configuring Firebolt to work with your Auth0 IdP.
-10. In the pop-up modal, Navigate to Settings. Scroll all the way down and click Enable to enable the SSO via SAML2.0 on the IdP.
-11. You can now configure Firebolt to use Auth0 as your IdP. 
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with Auth0 either using SQL scripts in the **Develop Space** or through the user interface (UI) in the **Configure Space**.
 
-#### Configure Firebolt 
-Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+##### Configure Firebolt to integrate with Auth0 using the UI
 
-##### UI
-1. To configure the Firebolt SSO integration with Auth0 via the UI, Navigate to **Configure > SSO** in Firebolt. 
-
-2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
-
-- ```signOnUrl```: The sign-on URL, provided by the SAML identity provider, to which Firebolt sends the SAML requests. The URL is IdP-specific and is determined by the identity provider during configuration. For Auth0, this value is the Identity Provider Login URL value copied earlier ([during Auth0 setup](#auth0))
+1. Login to the [Firebolt Workspace](https://go.firebolt.io/signup).
+2. Select the **Configure** icon (<img src="../../../assets/images/configure-icon.png" alt="The Firebolt Configure Space icon." width="30">).
+3. Select **SSO** from the left navigation pane.
+4. Under **Configure SSD for your organization**, enter the following:
+    
+    1. **Sign-on URL** - ```signOnUrl```: Enter the sign-on URL, provided by the SAML identity provider, is where Firebolt sends SAML requests. The URL is specific to the IdP and is defined during configuration. For Auth0, this value corresponds to the Identity Provider Login URL value copied in **Step 15** of the [Auth0 application configuration](#configure-auth0-application).
 - ```signoutUrl(optional)```: The sign-out URL, provided by the application owner, to be used when the user signs out of the application.```
-- ```issuer```: A unique value generated by the SAML identity provider specifying the issuer value.
+- ```issuer```: A unique value generated by the SAML identity provider specifying the issuer value. **It's in the Issuer field in the usage tab of the previous steps***
 - ```provider```: The provider's name - for example: ```Auth0```. 
-- ```label```: The label to use for the SSO login button. If not provided, the Provider field value is used. 
-- ```certificate```: The certificate to verify the communication between the identity provider and Firebolt. The certificate needs to be in PEM or CER format, and can be uploaded from your computer by choosing **Import certificate** or entered in the text box.
+- ```label```: The label to use for the SSO login button. If not provided, the Provider field value is used. **can give it whatever label you want**
+- ```Signing certificate```: The certificate to verify the communication between the identity provider and Firebolt. The certificate needs to be in PEM or CER format, and can be uploaded from your computer by choosing **Import certificate** or entered in the text box.
 - ```field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. 
       Here’s an example of how to set up field mapping:
 
