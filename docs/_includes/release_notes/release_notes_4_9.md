@@ -1,6 +1,6 @@
 # Firebolt Release Notes - Version 4.9
 
-## Behavior Changes
+There's not much that we are ready to show this time, but behind the scenes, we are hard at work to bring you tons of new features and performance improvements in upcoming releases. For now, this is what's coming your way in version 4.9.
 
 ## New Features
 
@@ -12,6 +12,3 @@ We added the setting `enable_result_cache`. You can use this setting during benc
 <!-- Auto Generated Markdown for FIR-37680 - Owned by Max Reinsel -->
 ### Added new `async_token` column to the `information_schema.engine_running_queries` table to track asynchronous query status
 The `information_schema.engine_running_queries` table now has a new column: `async_token`. If a query is asynchronous, this column contains the token. You can use this token to check the query's status through `call fb_GetAsyncStatus(<token>)`.
-
-
-## Performance Improvements
