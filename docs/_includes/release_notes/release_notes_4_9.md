@@ -9,4 +9,4 @@ There's not much that we are ready to show this time, but behind the scenes, we 
 You can set `enable_result_cache` to `FALSE` to disable the use of Firebolt's result cache, which is set to `TRUE` by default. Disabling result cashing can be useful for benchmarking query performance. When `enable_result_cache` is disabled, resubmitting the same query will recompute the results rather than retrieving them from cache. For more information, see [Result Cache](../../Reference/system-settings#result-cache).
 
 ### Added `LAG` and `LEAD` support for negative offsets.
-The second argument in both [LAG](../../sql_reference/functions-reference/window/lag) and [LEAD](../../sql_reference/functions-reference/window/lead) can now accept negative numbers. Given a negative number, a `LAG` will become a `LEAD` and vice versa. For example, `LAG(x,-5,3)` is the same as `LEAD(x,5,3)`.
+[LAG](../../sql_reference/functions-reference/window/lag) and [LEAD](../../sql_reference/functions-reference/window/lead) window functions now support negative offsets as the second argument.
