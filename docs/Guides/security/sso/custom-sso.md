@@ -9,35 +9,41 @@ parent: Configure SSO
 
 # Custom Identity Provider
 
-#### Configure Custom Identity Provider
+## Configure Custom Identity Provider (IdP)
 
-To use a SAML 2.0 compliant service or application as your IDP for single sign on (SSO) with Firebolt, complete the following steps:
-1. In the service/application interface, define a custom SHA-256 application for Firebolt. Follow the specific instructions of the service/application in order to define such a custom application.
-2. In the interface, create a user for each end-user that needs to access Firebolt. When creating the users, make sure to specify the email address for each of those users. Firebolt uses those email addresses to create the corresponding logins in Firebolt. See [setting up SSO](sso.md) for more information.
-3. Obtain values for Audience URI and ACS (Consumer) URL to use in the IDP setup. 
+In order to set up a SAML 2.0 compliant service or application as your Identity Provider (IdP) for Single Sign-On (SSO) with Firebolt, follow these steps:
+1. **Define a custom SHA-256** — In the service/application interface, define a custom SHA-256 application specifically for Firebolt. Follow the service or application's instructions to create this custom application.
+2. **Create Users in the Service/Application** — For each end-user that needs access to Firebolt:
+    * Create a user in the service/application interface.
+    * Ensure that each user’s email address is correctly specified. Firebolt uses these email addresses to create corresponding logins in Firebolt.
+For more details, refer to [setting up SSO](sso.md).
+3. **Obtain Required Values for IdP Setup** — To properly configure your IdP, you’ll need the following values:
+  **Audience URI and ACS (Consumer) URL**
+  These values are crucial for successful SSO authentication. If not configured properly, authentication will fail.
 
-    IMPORTANT: The SSO authentication will not work if these values are not setup properly in your IDP.
+      For example, if your organization name is `acmeorg` and the provider name is `custom`:
+    - Audience URI: `urn:auth0:firebolt-app-v2:acmeorg-custom`
+    - ACS URL: `https://id.app.firebolt.io/login/callback?connection=acmeorg-custom&organization=<organization_identifier>`
+
+    > **`<org_name>`** : The organizational name used to create your Firebolt account, as seen in your vanity URL.
     
-    If, for instance your organization name is `acmeorg` and provider name you specify is `custom`:
-    - Example of ACS URL: `https://id.app.firebolt.io/login/callback?connection=acmeorg-custom&organization=<organization_identifier>`
-    - Example of Audience URI: `urn:auth0:firebolt-app-v2:acmeorg-custom`
-
-    > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
-    > **`<provider>`** represents the provider we're configuring as our IdP.
-    > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
+    > **`<provider>`** : The provider being configured as your IdP.
+    
+    > **`<organization_identifier>`** : A unique identifier for your organization. To retrieve this value, navigate to Configure > SSO in the Firebolt UI and select Copy organization SSO             identifier.
 
         {: .note} 
-        The **Audience URI**, or Audience Restriction, determines the intended recipient or audience for the SAML Assertion. Depending on the vendor, this field might also be referred to as the **"Entity ID"**. 
+        The **Audience URI** (or Audience Restriction) defines the intended recipient of the SAML Assertion. Depending on the vendor, this might also be referred to as the **Entity ID**.
 
-4. Obtain the SSO URL (This is the URL endpoint to which Firebolt sends the SAML requests.) and certificate (used to verify the communication between the IDP and Firebolt) for your custom IDP. You will need the **SSO URL value** and **certificate** to set up SSO.
+4. **Obtain SSO URL and Certificate** — Retrieve the following from your custom IdP:
+    * **SSO URL** : The endpoint where Firebolt sends SAML requests.
+    * **Certificate** : Used to verify communication between the IdP and Firebolt.
 
-{: .note}
-With this information in hand, you're now ready to integrate your Identity Provider with Firebolt. 
+With all required information, you are now ready to integrate your Identity Provider with Firebolt.
 
-#### Configure Firebolt 
+## Configure Firebolt to integrate with IdP
 Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
 
-##### UI
+### Configure Firebolt to integrate with IdP using the UI
 1. To configure the Firebolt SSO integration via the UI, Navigate to **Configure > SSO** in Firebolt. 
 2. Enter the following information:
 - ```signOnUrl```: The sign-on URL, provided by the SAML identity provider, to which Firebolt sends the SAML requests. The URL is IdP-specific and is determined by the identity provider during configuration. For example, using Okta as an identity provider, the URL might look like: `https://okta_account_name.okta.com/app/okta_firebolt_app_id/sso/saml` 
@@ -59,7 +65,7 @@ Once your Identity Provider(IdP) is configured, you can now configure Firebolt t
       where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
 3. Choose **Update changes**.
 
-##### SQL
+### Configure Firebolt to integrate with IdP using SQL
 
 To create your SSO connection in Firebolt, you can use the following SQL as an example:
 ```sql
@@ -113,7 +119,7 @@ ALTER ORGANIZATION SET SSO = ‘{
 ```
 
 To edit SSO settings via the UI:
-1. Click **Configure** to open the configure space, then choose **SSO**.
+1. select **Configure** to open the configure space, then choose **SSO**.
 
 2. Edit the desired properties.
 
@@ -128,7 +134,7 @@ ALTER ORGANIZATION SET SSO = DEFAULT;
 ```
 
 To edit SSO settings via the UI:
-1. Click **Configure** to open the configure space, then choose **SSO**.
+1. select **Configure** to open the configure space, then choose **SSO**.
 
 2. Choose **Clear SSO configuration**.
 
