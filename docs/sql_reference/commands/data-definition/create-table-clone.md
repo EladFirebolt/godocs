@@ -42,8 +42,8 @@ CREATE [OR REPLACE] TABLE <target_table_name> CLONE <source_table_name> [{INCLUD
 | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
 | `IF NOT EXISTS`        | By default, specifies that an existing table `<target_table_name>` will not be replaced with the new table schema definition. This clause prevents an error message that would otherwise occur, making it useful for scripted and programmatic implementations.|
 | `OR REPLACE`           | Specifies that an existing `<target_table_name>` will be replaced with the new table definition.|
-| `<target_table_name>`  | An identifier that specifies the name of the table. This name should be unique within the database. |
-| `<source_table_name>` | An identifier that specifies the name of the source table to clone. The source table must exist within the same database.               |
+| `<target_table_name>`  | An identifier that specifies the name of the table. This name should be unique within the target database. |
+| `<source_table_name>` | An identifier that specifies the name of the source table to clone. The source table must exist within the source database.               |
 | `<index_name>`	| An aggregating index to clone from the source table, the index must exist and be associated with the source table.
 
 
@@ -93,8 +93,20 @@ The following code example creates a copy of the `sales_data` table and includes
 CREATE TABLE cloned_sales_data CLONE sales_data INCLUDING INDEXES;
 ```
 
-### Limitations
-You can use `CREATE TABLE CLONE` only under the following conditions:
-* You can only clone Firebolt-managed tables. External tables and views are not supported.
-* You can only clone tables within the same database. Cross-database cloning is not currently supported, but will be available in future releases.
+# CLONE A TABLE ACROSS DATABASES
 
+You can clone a table from one database to another using a three-part identifier for either the source or target table.
+
+When cloning across databases, you can keep the original table name as long as it does not already exist in the target database.
+
+**Example**
+
+The following code example creates an exact copy of the existing `sales_data` table from the `staging` database in the `prod` database:
+
+```sql
+CREATE TABLE prod.public.sales_data CLONE staging.public.sales_data;
+```
+
+### Limitations
+* You can only use `CREATE TABLE CLONE` to clone Firebolt-managed tables. External tables and views are not supported.
+* `CREATE TABLE CLONE` is only supported for cloning tables created on Firebolt version 4.10 or higher.
