@@ -56,3 +56,28 @@ ALTER TABLE <table> OWNER TO <user>
 | :------------------ | :-------------------------------|
 | `<table>` | Name of the table to change the owner of. |
 | `<user>`  | The new owner of the table.               |
+
+## ALTER TABLE RENAME TO
+
+Renames a table.
+
+### Syntax
+
+```sql
+ALTER TABLE [IF EXISTS] <table_name> RENAME TO <new_table_name>
+```
+
+### Parameters
+{: .no_toc} 
+
+| Parameter          | Description                                  |
+| :------------------ | :-------------------------------------------- |
+| `<table_name>`     | The name of the table to rename. |
+| `<new_table_name>` | The new name of the table. |
+
+### Limitations
+The query can only be executed under the following conditions:
+* Only for managed tables created on Firebolt version 4.10 or higher (external tables are not supported).
+* The table must not have any dependent views.
+* Renaming tables across schemas and databases is not possible.
+* Tables in the information schema cannot be renamed.
