@@ -13,6 +13,5 @@ The second parameter in both [LAG](../../sql_reference/functions-reference/windo
 
 ## Performance Improvements
 
-<!-- Auto Generated Markdown for FIR-36922 - Owned by Ori Brostovski -->
 ### Faster string searches for case-insensitive simple regular expressions in `REGEXP_LIKE`
 Simple regular expressions in [REGEXP_LIKE](../../sql_reference/functions-reference/string/regexp-like) with case-insensitive matching, using the `i` flag, now use the same optimized string search implementation as [ILIKE](../../sql_reference/functions-reference/string/ilike), achieving up to three times faster runtimes in observed cases.
