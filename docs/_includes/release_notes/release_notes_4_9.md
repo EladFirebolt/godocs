@@ -10,3 +10,9 @@ You can set `enable_result_cache` to `FALSE` to disable the use of Firebolt's re
 
 ### Added `LAG` and `LEAD` support for negative offsets.
 The second parameter in both [LAG](../../sql_reference/functions-reference/window/lag) and [LEAD](../../sql_reference/functions-reference/window/lead) can now accept negative numbers. Given a negative number, a `LAG` will become a `LEAD` and vice versa. For example, `LAG(x,-5,3)` is the same as `LEAD(x,5,3)`.
+
+## Performance Improvements
+
+<!-- Auto Generated Markdown for FIR-36922 - Owned by Ori Brostovski -->
+### Faster string searches for case-insensitive simple regular expressions in `REGEXP_LIKE`
+Simple regular expressions in [REGEXP_LIKE](../../sql_reference/functions-reference/string/regexp-like) with case-insensitive matching, using the `i` flag, now use the same optimized string search implementation as [ILIKE](../../sql_reference/functions-reference/string/ilike), achieving up to three times faster runtimes in observed cases.
