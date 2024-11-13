@@ -26,4 +26,4 @@ Fixed a rare case where empty character classes were parsed as such instead of b
 
 <!-- FIR-37296 - Owned by Pascal Schulze -->
 ### Trailing backslash in regular expressions
-Fixed a rare case where invalid regular expressions with a trailing-backslach `\` were accepted.
+Fixed a rare case where invalid regular expressions with a trailing backslash `\` were accepted.
