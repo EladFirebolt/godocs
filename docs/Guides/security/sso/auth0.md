@@ -9,7 +9,7 @@ parent: Configure SSO
 
 # Auth0
 
-[Auth0](https://auth0.com/) is an identity management platform that provides authentication and authorization services for applications. Auth0 supports implementing secure login systems with authentication methods including Single-sign on (SS0). To integrate Auth0 with Firebolt's platform, you need to configure both an Auth0 application for Firebolt and Firebolt's SSO for Auth0. Detailed instructions can be found in the following sections:
+[Auth0](https://auth0.com/) is an identity management platform that provides authentication and authorization services for applications. Auth0 supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Auth0 with Firebolt's platform, you need to configure both an Auth0 application for Firebolt and Firebolt's SSO for Auth0. Detailed instructions can be found in the following sections:
 
 ## Configure an Auth0 application
 
