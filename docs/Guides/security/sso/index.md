@@ -9,9 +9,15 @@ has_toc: false
 has_children: true
 ---
 
+An **Identity Provider (IdP)** is a service that handles user authentication and manages user identities. When you set up Single Sign-On (SSO), the IdP verifies your users' credentials and allows them to access multiple applications, including Firebolt, without needing to login repeatedly.  
+
+For your organization, an IdP simplifies user management and strengthens security. You can enforce centralized security policies, like multi-factor authentication (MFA), and quickly revoke access when someone leaves the team. 
+
+For your users, one login gives them access to all the tools they need, including Firebolt.
+
 # Configure your IdP
 
-Single-sign on (SSO) is an authentication process that allows users to access multiple applications or services with a single set of credentials. It provides a centralized authentication mechanism for organizations so that it's easier to manage user access, enforce security policies, and revoke access when necessary.
+Single-sign on (SSO) is an authentication process that allows access to multiple applications or services with a single set of credentials. It provides a centralized authentication mechanism for your organization so that it's easier to manage user access, enforce security policies, and revoke access when necessary.
 
 ## Pre-requisites
 
@@ -22,7 +28,7 @@ If your Audience URI is not configured correctly, Security Assertion Markup Lang
 
 ## Supported IdPs
 
-Firebolt allows users to sign in using their federated identities. The SSO implementation supports the following IdPs:
+Firebolt allows you to sign in using federated identities. The SSO implementation supports the following IdPs:
 
 - [Auth0](../sso/auth0.md)
 - [Okta](../sso/okta.md)
