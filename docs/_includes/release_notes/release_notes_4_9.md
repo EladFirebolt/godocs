@@ -13,5 +13,17 @@ The second parameter in both [LAG](../../sql_reference/functions-reference/windo
 
 ## Performance Improvements
 
+<!-- FIR-37296 - Owned by Timo Kersten -->
 ### Faster string searches for case-insensitive simple regular expressions in `REGEXP_LIKE`
 Simple regular expressions in [REGEXP_LIKE](../../sql_reference/functions-reference/string/regexp-like) with case-insensitive matching, using the `i` flag, now use the same optimized string search implementation as [ILIKE](../../sql_reference/functions-reference/string/ilike), achieving up to three times faster runtimes in observed cases.
+
+
+## Bug Fixes
+
+<!-- FIR-37296 - Owned by Pascal Schulze -->
+### Empty character classes in regular expressions
+Fixed a rare case where empty character classes were parsed as such instead of being resolved as raw characters. For example, `[]a]` matches a single character in the list `]a` and not an empty class `[]` followed by `a]`.
+
+<!-- FIR-37296 - Owned by Pascal Schulze -->
+### Trailing backslash in regular expressions
+Fixed a rare case where invalid regular expressions with a trailing-backslach `\` were accepted.
