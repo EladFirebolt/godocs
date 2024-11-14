@@ -9,6 +9,8 @@ parent: Configure SSO
 
 # OneLogin
 
+OneLogin is a cloud-based identity and access management platform that simplifies secure access to applications through single sign-on (SSO). Integrating OneLogin with Firebolt enhances security and streamlines user authentication for your team.
+
 ## Configure OneLogin application
 
 1. In OneLogin, open to the dashboard and select **Applications** and **Add App**.
