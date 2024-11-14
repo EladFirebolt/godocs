@@ -2,18 +2,28 @@
 layout: default
 title: Salesforce
 description: Learn how to configure Salesforce as your identity provider to work with SSO authentication for Firebolt. 
-great_grand_parent: Guides
-grand_parent: Configure security
 parent: Configure SSO
 ---
 
 # Salesforce
 
+[Salesforce](https://www.salesforce.com/) is a cloud-based customer relationship management platform that offers applications for sales, marketing, commerce and IT. Salesforce supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Salesforce with Firebolt's platform, you must [configure your Salesforce organization](https://help.salesforce.com/s/articleView?id=sf.sso_sfdc_idp_saml_parent.htm&type=5) as a SAML identity provider (IdP) for an external service. Then, you must configure Firebolt's SSO to work with Salesforce. Detailed instructions can be found in the following sections:
+
 #### Configure Salesforce application
 
-1. In Salesforce, search for the 'Identity provider' setting. Make sure that 'Identity Provider Setup' is enabled. You can use default certificate. 
-
-2. From the **Identity Provider** page, click **Download Metadata**. Open the downloaded xml file and find the SingleSignOnService binding, Location attribute, which ends with `../HttpPost`. It will look like: `https://<your-salesforce-account>.my.salesforce.com/idp/endpoint/HttpPost`. Save this value to be used as the SignOnURL in Firebolt SSO configuration.
+1. Login to [Salesforce](https://login.salesforce.com/). If you don't yet have an account with Salesforce, you can [sign-up](https://www.salesforce.com/form/signup/freetrial-salesforce-starter/) to access their services.
+2. In the Salesforce Lightning user interface (UI), enter "Identity Provider" into the **Quick Find** text box at the top of the left navigation bar. For more information about the Lightning user interface, see [Find Your Way Around Setup in Lightning Experience](https://help.salesforce.com/s/articleView?id=sf.lex_find_your_way_around_setup.htm&type=5).
+3. From the search results, select **Identity Provider**.
+4. Select **Enable Identity Provider**.
+5. Select a certificate from the dropdown list. You can use the default self-signed certificate generated with the [SHA-256](https://en.wikipedia.org/wiki/SHA-2) signature algorithm or use your own. For more information, see Salesforce's documentation for [Certificates and Keys](https://help.salesforce.com/s/articleView?id=sf.security_keys_about.htm&type=5).
+6. Select **Download Certificate**. This should download a certificate ending in `.crt` to a local drive.
+7. Navigate to the directory containing your downloaded certificate.
+8. Convert the certificate to [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) by entering the following code into a terminal or command prompt on a system where [OpenSSL](https://openssl-library.org/) is installed:
+    ```openssl x509 -in original.crt -out sfcert.pem -outform PEM```
+    In the previous code example, replace `original.crt` with the name of your downloaded certificate.
+9. From the **Identity Provider** page in Saleforce's Lightning UI, select **Download Metadata**.
+ 
+ Open the downloaded xml file and find the SingleSignOnService binding, Location attribute, which ends with `../HttpPost`. It will look like: `https://<your-salesforce-account>.my.salesforce.com/idp/endpoint/HttpPost`. Save this value to be used as the SignOnURL in Firebolt SSO configuration.
 3. Click **Download Certificate**, and convert the downloaded .crt file to PEM format. You could do this using the following command:
 ```openssl x509 -in original.crt -out sfcert.pem -outform PEM```
 where ```original.crt``` is the name of the downloaded .crt file.
