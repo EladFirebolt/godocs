@@ -22,7 +22,7 @@ Simple regular expressions in [REGEXP_LIKE](../../sql_reference/functions-refere
 
 <!-- FIR-37296 - Owned by Pascal Schulze -->
 ### Empty character classes in regular expressions
-Fixed a rare case where empty character classes were parsed as such instead of being resolved as raw characters. For example, `[]a]` matches a single character in the list `]a` and not an empty class `[]` followed by `a]`.
+Fixed a rare case where empty character classes were mistakenly interpreted as valid character classes instead of being treated as raw characters. In cases like `[]a]`, the expression is now correctly interpreted as a pattern that matches any single character from the list `]a`, rather than treating `[]` as an empty character class followed by `a]`. 
 
 <!-- FIR-37296 - Owned by Pascal Schulze -->
 ### Trailing backslash in regular expressions
