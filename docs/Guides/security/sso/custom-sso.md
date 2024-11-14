@@ -2,8 +2,6 @@
 layout: default
 title: Custom Identity Provider
 description: Learn how to configure a custom Identity Provider integration with Firebolt. 
-great_grand_parent: Guides
-grand_parent: Configure security
 parent: Configure SSO
 ---
 
