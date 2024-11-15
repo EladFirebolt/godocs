@@ -9,91 +9,89 @@ parent: Configure SSO
 
 # Okta
 
-#### Configure Okta application
-1. In Okta Admin Console, go to **Applications > Applications**.
-2. Click **Create App Integration**.
-3. Select **SAML 2.0** as the Sign-in method and click **Next**.
-4. In the general configuration, fill in the following fields:
+Okta is an identity and access management platform that enables secure Single Sign-On (SSO). Integrating Okta with Firebolt allows users to login using their existing credentials, simplifying access while maintaining security. This setup helps you and your team centralize authentication and manage user access.
+
+## Configure Okta application
+1. In the Okta Admin Console, select **Applications** from the left navigation panel.
+2. Select **Applications** again.
+3. Select **Create a new app integration**.
+4. Select **SAML 2.0** as the sign-in method and choose **Next**.
+5. Fill out **General Settings** and navigate to the next section **Configure SAML**.
+6. Complete the following fields:
     -  **Single sign-on URL.** 
-   
-    This URL has the following format `https://id.app.firebolt.io/login/callback?connection=<org_name>-<provider>&organization=<organization_identifier>` 
+   This URL has the following format `https://id.app.firebolt.io/login/callback?connection=<org_name>-<provider>&organization=<organization_identifier>` 
+        * **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
+        * **`<provider>`** represents the provider we're configuring as our IdP.
+        * **`<organization_identifier>`** - the unique identifier for your organization in Firebolt. To retrieve your **`<organization_identifier>`**, do the following:
 
-    > **`<org_name>`** represents the Organizational name used to create your Firebolt Account. The org name is referenced in your vanity URL.  
-    > **`<provider>`** represents the provider we're configuring as our IdP.
-    > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
+            1. Login to the [Firebolt Workspace](https://go.firebolt.io/signup).
+            2. Select the **Configure** icon (<img src="../../../assets/images/configure-icon.png" alt="The Firebolt Configure Space icon." width="20">).
+            3. Select **SSO** from the left navigation pane.
+            4. Select **Copy organization SSO identifier**. 
 
-        
-    **Example:** https://id.app.firebolt.io/login/callback?connection=vsko-okta&organization=org_82u3nzTNQPA8RyoM
+        **Example:** https://id.app.firebolt.io/login/callback?connection=vsko-okta&organization=org_82u3nzTNQPA8RyoM
     - **Audience URI (SP Entity ID).** 
-    
-   
-    This URI has the following format: `urn:auth0:<tenant_name>:<org_name>-<provider>`, where `<tenant_name>` is app-firebolt-v2, `<org_name>` is the name of organization provider and `<provider>` is the provider value set in Firebolt configuration step. 
+    This URI has the following format: `urn:okta:<tenant_name>:<org_name>-<provider>`, where `<tenant_name>` is app-firebolt-v2, `<org_name>` is the name of organization provider and `<provider>` is the provider value set in Firebolt configuration step. 
 
-    **Example:** ```urn:auth0:app-firebolt-v2:vsko-okta```
-5. Save the configuration.
-6. Open the details of the created app integration, and select the **SAML** tab. Click **More details** to expand additional information.
-7. Copy the value for **Identity Provider Single Sign-On URL** and download the signing certificate.
+    **Example:** ```urn:okta:app-firebolt-v2:vsko-okta```
+7. Save the configuration.
+8. Open the **Sign On** tab of your created app integration, and select the **SAML 2.0** tab. Select **More details** to expand additional information.
+9. Copy or note down the value for **Sign on URL** and **Issuer**. 
+10. Download the **Signing Certificate**.
 
-### Example - Firebolt organization configuration to work with Okta
+## Configure Firebolt to integrate with Okta
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with Okta either using SQL scripts in the **Develop Space** or through the user interface (UI) in the **Configure Space**.
 
-#### Configure Firebolt 
-Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+### Configure Firebolt to integrate with Okta using the Ui
 
-##### UI
-1. To configure the Firebolt SSO integration with Okta via the UI, Navigate to **Configure > SSO** in Firebolt. 
+1. Login to the [Firebolt Workspace](https://go.firebolt.io/signup).
+2. Select the **Configure** icon (<img src="../../../assets/images/configure-icon.png" alt="The Firebolt Configure Space icon." width="20">).
+3. Select **SSO** from the left navigation pane.
+4. Under **Configure SSO for your organization**, enter the following:
 
-2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
+    1. **Sign-on URL** - Enter the sign-on URL, provided by the SAML identity provider, where Firebolt will send SAML requests. The URL is specific to the IdP and is defined during configuration. For Okta, this value corresponds to the Sign on URL value copied in **Step 6**.
+    2. **Issuer** - A unique value generated by the SAML identity provider specifying the issuer value. The issuer corresponds to the **Issuer** value noted in **Step 9**.
+    3. **Provider** - The provider's name, `Okta`.
+    4. **Label**: The label to use for the SSO login button. You can use any label name. If the label is not provided, Firebolt uses the value in the **Provider** field.
+    5. (Optional) **Sign-out URL** - An endpoint provided by Okta that facilitates the logout process by redirecting the user to this URL, ending their session.
+    6. **Signing certificate** - A digital certificate used to verify the authenticity of a signature used to communication between Okta and Firebolt. The certificate must be in Privacy Enhanced Mail (PEM) or CER format, and can be uploaded from your computer by selecting **Import certificate** or entered in the text box under **Signing certificate**.
+    7. **Field mapping** - A mapping used to match user attributes between Okta and Firebolt. Enter the **First name** and **Last name** in your Okta profile.  Mapping is only required the first time a user logs in using SSO. 
+    8. Select **Update changes**.
 
-- ```signOnUrl```: The sign-on URL, provided by the SAML identity provider, to which Firebolt sends the SAML requests. The URL is IdP-specific and is determined by the identity provider during configuration.
-- ```signoutUrl(optional)```: The sign-out URL, provided by the application owner, to be used when the user signs out of the application.```
-- ```issuer```: A unique value generated by the SAML identity provider specifying the issuer value.
-- ```provider```: The provider's name - for example: ```Okta```. 
-- ```label```: The label to use for the SSO login button. If not provided, the Provider field value is used. 
-- ```certificate```: The certificate to verify the communication between the identity provider and Firebolt. The certificate needs to be in PEM or CER format, and can be uploaded from your computer by choosing **Import certificate** or entered in the text box.
-- ```field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. 
-      Here’s an example of how to set up field mapping:
+### Configure Firebolt to integrate with Okta using SQL
 
-      ```json  
-        {
-            "given_name": "name",
-            "family_name": "surname"
-        }
-      ```
+Login to Firebolt’s [Workspace](https://go.firebolt.io/login). If you haven’t yet registered with Firebolt, see [Get Started](../../getting-started/index.md). If you encounter any issues, reach out to [support@firebolt.io](mailto:support@firebolt.io) for help. Then, do the following:
 
-      where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
-3. Choose **Update changes**
+1. Select the Develop icon (<img src="../../../assets/images/develop-icon.png" alt="The Firebolt Develop Space icon." width="20">).
+2. By default, when you login to **Firebolt’s Workspace** for the first time, Firebolt creates a tab in the **Develop Space** called **Script 1**. The following apply:
 
-#### Configure Firebolt via SQL
+  * The database that Script 1 will run using is located directly below the tab name. If you want to change the database, select another database from the drop-down list.
+  * An engine must be running to process the script in a selected tab. The name and status of the engine that Script 1 uses for computation is located to the right of the current selected database.
 
-To create your SSO connection in Firebolt, you can use the following SQL as an example:
+  Select system from the drop-down arrow next to the engine name. The system engine is always running, and you can use it to create a service account. You can also use an engine that you create.
+
+3. Use the syntax in the following example code to create an SSO connection in the **SQL Script Editor**:
+
 ```sql
 ALTER ORGANIZATION vsko SET SSO = '{
-  "signOnUrl": "https://vsko.okta.com/app/vsko_app_1/exk8kq6ikd3Is13KO4x7/sso/saml",
+  "signOnUrl": "https://dev-1234567890123456.us.okta.com/samlp/123456789012345678901234567890123",
+  "signoutURL": "http://your-sign-out-URL",
   "issuer": "okta",
   "provider": "okta",
-  "label": "Okta Company App",
+  "label": "Okta Company IdP",
   "fieldMapping": {
     "given_name": "name",
     "family_name": "surname"
   },
   "certificate": "<certificate>",
 }';
+```
 
-where
-- ```signOnUrl```: The sign-on URL, provided by the SAML identity provider, to which Firebolt sends the SAML requests. The URL is IdP-specific and is determined by the identity provider during configuration. 
-- ```signoutUrl(optional)```: The sign-out URL, provided by the application owner, to be used when the user signs out of the application.```
-- ```issuer```: A unique value generated by the SAML identity provider specifying the issuer value.
-- ```provider```: The provider's name - for example: ```Okta```. 
-- ```label```: The label to use for the SSO login button. If not provided, the Provider field value is used. 
-- ```certificate```: The certificate to verify the communication between the identity provider and Firebolt. The certificate needs to be in PEM or CER format, and can be uploaded from your computer by choosing **Import certificate** or entered in the text box.
-- ```field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. 
-      Here’s an example of how to set up field mapping:
-
-      ```json  
-        {
-            "given_name": "name",
-            "family_name": "surname"
-        }
-      ```
-
-      where the "given_name" (first name) is mapped to the "name" field from the IDP, and the "family_name" (last name) is mapped from the "surname" field.
+In the previous code example, the following apply:
+* `signOnUrl`- The sign-on URL, provided by the SAML identity provider, where Firebolt will send SAML requests. The URL is specific to the IdP and is defined during configuration. For Okta, this value corresponds to the Sign on URL value copied in **Step 6**.
+* (Optional)`signoutUrl`- An endpoint provided by Okta that facilitates the logout process by redirecting the user to this URL, ending their session.
+* `issuer` - A unique value generated by the SAML identity provider specifying the issuer value. The issuer corresponds to the **Issuer** value noted in **Step 9**.
+* `provider` - The provider's name, `Okta`. 
+* `label` - The label to use for the SSO login button. You can use any label name. If the label is not provided, Firebolt uses the value in the **Provider** field. 
+* `certificate` - A digital certificate used to verify the authenticity of a signature used to communication between Okta and Firebolt. The certificate must be in Privacy Enhanced Mail (PEM) or CER format.
+* `field mapping` - A mapping used to match user attributes between Okta and Firebolt. Enter the first name and surname in your Okta profile.  Mapping is only required the first time a user logs in using SSO.
