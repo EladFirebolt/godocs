@@ -22,6 +22,8 @@ By default, all aggregating indexes are implicitly cloned from the source table.
 - **INCLUDING INDEXES:** Clones all aggregating indexes from the source table, or clone a partial list of indexes if one is provided.
 - **EXCLUDING INDEXES:** Clones the table without any of the aggregating indexes from the source table.
 
+The newly created aggregating indexes will either retain the original aggregating index's name or include an enumerated suffix if that name already exists.
+
 ## Syntax
 
 ```sql
