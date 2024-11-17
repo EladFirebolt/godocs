@@ -80,4 +80,3 @@ The query can only be executed under the following conditions:
 * Only for managed tables created on Firebolt version 4.10 or higher (external tables are not supported).
 * The table must not have any dependent views.
 * Renaming tables across schemas and databases is not possible.
-* Tables in the information schema cannot be renamed.
