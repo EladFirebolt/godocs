@@ -53,7 +53,7 @@ or multiple query parameters:
 
 With query parameters set as: 
 ```sql
-{ "name": "level", "value": "Drift" }
+SET query_parameters = { "name": "level", "value": "Drift" }
 ```
 
 the query below counts the number of "Drift" type levels:
