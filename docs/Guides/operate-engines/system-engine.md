@@ -77,10 +77,35 @@ Guidance on creating service accounts can be found in the [service account](../m
 ### Other SDKs
 Any other Firebolt connector can also be used similarly, as long as the engine name is omitted.
 
-## Known limitations and future release plans
+## System Engine Limitations
 
-**Supported queries for system engine**
+### Supported queries for system engine
 
-At this time, the system engine only supports running the metadata-related queries listed above. Additional queries will be supported in future versions.
+System engine only supports running the metadata-related queries listed above. Additional queries will be supported in future versions.
 
-System engine is currently only available for accounts that have a single region enabled.
+### Rate Limits for System Engines
+
+To ensure fair and consistent access to the System Engine for all users, we have introduced rate limits that govern resource usage per account. These limits are designed to prevent resource contention and ensure optimal performance for everyone.
+
+When the rate limits are exceeded on the system engine, the system will return the following error: `429: Account system engine resources usage limit exceeded`.
+This error typically occurs when an account submits an excessive number of queries or executes highly complex queries that surpass the allocated resource thresholds.
+
+**What to Do If You Encounter Rate Limits**
+
+If you receive the 429 error, consider these steps to resolve the issue:
+
+* Switch to a User Engine: Offload your workloads to a dedicated User Engine if possible. User Engines do not have the same rate limits, making them better suited for higher workloads or complex operations.
+* Review your query patterns and ensure they are not unnecessarily complex or resource-intensive. Use best practices to write efficient queries that minimize resource consumption.
+* Contact Support: If you believe your account has been rate-limited unfairly or you anticipate requiring higher limits, reach out to our support team to discuss adjusting your account's thresholds.
+
+**Best Practices to Avoid Rate Limits**
+
+* Avoid running multiple concurrent queries that heavily use system resources.
+* Leverage Firebolt's indexing and other optimization features to streamline your queries.
+* Regularly audit your workloads and usage patterns to align with the system's best practices.
+
+**Why This Matters**
+
+These rate limits are critical for maintaining a fair and robust environment where all users can achieve reliable performance without disruption from resource-heavy neighbors. This measure aligns with our commitment to delivering consistent and high-quality service across all accounts.
+
+For additional support or questions, please contact our support team or refer to our documentation on optimizing query performance.
