@@ -109,4 +109,4 @@ ALTER TABLE [IF EXISTS] <table_name> RENAME TO <new_table_name>
 The query can only be executed under the following conditions:
 * Only for managed tables created on Firebolt version 4.10 or higher (external tables are not supported).
 * The table must not have any dependent views.
-* Renaming tables across schemas and databases is not possible.
+* Renaming tables across schemas and databases is not supported. Consider using [CREATE TABLE CLONE](./create-table-clone.md)
