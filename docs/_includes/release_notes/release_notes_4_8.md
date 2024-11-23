@@ -31,17 +31,10 @@ Added the following aggregate functions:
 * `PERCENTILE_CONT` calculates a specified percentile of values in an ordered dataset.
 * `MEDIAN` returns the median of a given column. It is equivalent to `PERCENTILE_CONT(0.5)`: half the values in the column are smaller, and half are bigger than the returned value. If the number of values in the column is even, `MEDIAN` returns the arithmetic mean of the two middle values.
 
-<<<<<<< HEAD
 
 **Added support to meet HIPAA regulations for health information**
 Added [support to meet federal HIPAA regulations](../../Overview/security#hipaa-compliance) to ensure the confidentiality, integrity, and availability of electronic protected health information within the Firebolt platform.
 
-=======
-**Added support to meet HIPAA regulations for health information**
-Added [support to meet federal HIPAA regulations](../../Overview/security#hipaa-compliance) to ensure the confidentiality, integrity, and availability of electronic protected health information within the Firebolt platform.
-
-
->>>>>>> gh-pages
 ### Performance Improvements
 
 <!-- Auto Generated Markdown for FIR-36922 - Owned by Ori Brostovski -->
@@ -52,10 +45,6 @@ Improved expression comparison logic to better recognize identical expressions w
 **Improving cold reads by reducing the amount of Amazon S3 requests needed to load data**
 Improved the performance of cold reads by minimizing the number of Amazon S3 requests required to load data. In the case of tiny tablets, this improvement lead to a 50% improvement in performance.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> gh-pages
 ### Bug Fixes
 
 <!-- Auto Generated Markdown for FIR-37268 - Owned by Zhen Li -->
