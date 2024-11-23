@@ -56,7 +56,7 @@ You can now use `<AWS_SESSION_TOKEN>` with access keys to securely authenticate 
 Resolved an issue where the runtime displayed in Firebolt's user interface and JSON responses omitted including processing times for some query steps. 
 
 <!-- Auto Generated Markdown for FIR-38001 - Owned by Zhen Li -->
-**Resolved "Invalid Input Aggregate State Type" Error with Aggregating Indexes**
+**Resolved "Invalid Input Aggregate State Type" error with aggregating indexes**
 
 Fixed an issue where the "invalid input aggregate state type" error could occur when queries read from aggregating indexes that defined a `COUNT(*)` aggregate function before other aggregate functions. After this fix, such aggregating indexes can now be queried correctly without needing to be rebuilt.
 
@@ -66,7 +66,7 @@ Fixed an issue where the "invalid input aggregate state type" error could occur 
 Addressed a rare issue in the logic for caching and reusing subresults that could cause query failures with specific query patterns. This issue did not impact the correctness of query results.
 
 <!-- Auto Generated Markdown for FIR-36835 - Owned by Michael Freitag -->
-**HTTP API Enhancements, JSON Function Deprecation, Bug Fixes, and Performance Optimizations**
+**HTTP API enhancements, JSON function deprecation, bug fixes, and performance optimizations**
 
 Firebolt updated the following functions:
 * Changed the HTTP API to return query execution errors in JSON format. This change will allow the inclusion of metadata such as error codes and the location of failing SQL expressions in the future.
