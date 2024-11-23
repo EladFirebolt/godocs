@@ -371,7 +371,7 @@ Use [COPY TO](../../sql_reference/commands/data-management/copy-to.md) select al
 COPY (SELECT * FROM test_table)
   TO 's3://my_bucket/my_fb_queries'
   CREDENTIALS = 
-  (AWS_ROLE_ARN='arn:aws:iam::123456789012:role/my-firebolt-role');
+  (AWS_ROLE_ARN= 'arn:aws:iam::123456789012:role/my-firebolt-role');
 ```
 In the previous code example, the role ARN ([Amazon Resource Name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)) identifies the AWS IAM role that specifies the access for users or services. An ARN follows the following structure: arn:aws:iam::account-id:role/role-name. Because TYPE is omitted from `COPY TO`, the file or files will be written in the default CSV format. Because `COMPRESSION` is also omitted, the output data is compressed using GZIP (*.csv.gz) format.
 

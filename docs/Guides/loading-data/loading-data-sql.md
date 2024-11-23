@@ -54,18 +54,41 @@ COPY INTO tutorial
 FROM 's3://your_s3_bucket/your_file.csv'
 WITH
 CREDENTIALS = (
-AWS_KEY_ID = '<aws_key_id>' 
-AWS_SECRET_KEY = '<aws_secret_key>'
+    AWS_ROLE_ARN='arn:aws:iam::123456789012:role/my-firebolt-role'
 )
 HEADER=TRUE AUTO_CREATE=TRUE;
  ```
 
-To provide your credentials in the previous example, do the following:
+Firebolt supports authentication using both permanent AWS access keys and temporary security credentials obtained through Amazon's [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) feature. To provide your credentials for the previous example, follow these steps:
 
-- Replace the \<aws_key_id\> with an AWS access key that is associated with an AWS user or AWS IAM role. The AWS access key is a 20-character string such as ‘AKIAIOSFODNN7EXAMPLE’.
-- Replace the \<aws_secret_key\> with an AWS secret access key associated with the user or role associated with the AWS access key. The AWS secret access key is a 40-character string such as ‘wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY’.
+#### Static Credentials
+Replace <aws_key_id> with an AWS access key ID associated with an AWS user or IAM role. The access key ID is a 20-character string (e.g., AKIAIOSFODNN7EXAMPLE).
+Replace <aws_secret_key> with the AWS Secret Access Key associated with the user or role. The Secret Access Key is a 40-character string (e.g., wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY). Optionally, an AWS_SESSION_TOKEN can be specified. 
 
-For more information about how to create an AWS access key and AWS secret key, see [Creating Access Key and Secret ID in AWS](../../Guides/loading-data/creating-access-keys-aws.md).
+**Example:**
+
+```sql
+COPY INTO tutorial 
+FROM 's3://test-bucket/data.csv'
+WITH
+CREDENTIALS = (
+    AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+)
+```
+
+#### Assume Role Authentication
+Replace <aws_role_arn> with your role's Amazon Resource Name (ARN) of the IAM role that you want Firebolt to assume. This method gives Firebolt temporary credentials to authenticate and access your Amazon S3 bucket. 
+
+**Example:**
+
+```sql
+COPY INTO tutorial 
+FROM 's3://test-bucket/data.csv'
+WITH
+CREDENTIALS = (
+    AWS_ROLE_ARN='arn:aws:iam::746669185839:role/example'
+)
+```
 
 ## Define a schema, create a table, and load data
 
@@ -418,21 +441,19 @@ In the previous code example, the following apply:
 
 `COPY FROM` supports an option to generate error files that describe the errors encountered and note the rows with errors. To store these files in an Amazon S3 bucket, you must provide credentials to allow Firebolt to write to the bucket.
 
-The following example sets an error handling threshold and specifies an Amazon S3 bucket as the source data and another to write the error file:
+The following example sets an error handling threshold and specifies an Amazon S3 bucket as the source data and another to write the error file: 
 
 ```sql 
 COPY INTO my_table
 FROM 's3://my-bucket/data.csv'
 WITH
 CREDENTIALS = (
-    AWS_KEY_ID = 'YOUR_AWS_KEY_ID'
-    AWS_SECRET_KEY = 'YOUR_AWS_SECRET_KEY'
+  AWS_ROLE_ARN='arn:aws:iam::123456789012:role/my-firebolt-role'
 )
 MAX_ERRORS_PER_FILE = '100%'
 ERROR_FILE = 's3://my-bucket/error_logs/'
 ERROR_FILE_CREDENTIALS = (
-    AWS_KEY_ID = 'YOUR_AWS_KEY_ID'
-    AWS_SECRET_KEY = 'YOUR_AWS_SECRET_KEY'
+  AWS_ROLE_ARN='arn:aws:iam::123456789012:role/my-firebolt-role'
 )
 HEADER = TRUE
 ```
@@ -440,7 +461,7 @@ HEADER = TRUE
 In the previous code example, the following apply:
 * `COPY INTO`: Specifies the target table to load the data into.
 * `FROM`: Specifies the S3 bucket location of the data.
-* `CREDENTIALS`: Specifies AWS credentials to access information in the Amazon S3 bucket that contains the source data. For more Information about credentials and how to set them up, see the previous **The simplest COPY FROM workflow** section in this guide.
+* `CREDENTIALS`: Specifies AWS credentials to access information in the Amazon S3 bucket that contains the source data. AWS [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) authentication is used for dynamic, temporary credentials. For more Information about credentials and how to set them up, see [The simplest COPY FROM workflow]({% link Guides/loading-data/loading-data-sql.md %}#the-simplest-copy-from-workflow).
 * Error Handling:
     * `MAX_ERRORS_PER_FILE = ‘100%’`: Allows errors in up to `100%` of the rows per file before the load data job fails.
     * `ERROR_FILE`: Specifies the Amazon S3 bucket location to write the error file.
