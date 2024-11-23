@@ -1,6 +1,6 @@
-# Firebolt Release Notes - Version 4.10
+## Firebolt Release Notes - Version 4.10
 
-## Behavior Changes
+### Behavior Changes
 
 <!-- Auto Generated Markdown for FIR-25824 - Owned by Kfir Yehuda -->
 **Enhanced PostgreSQL compliance for casting data types from text to float**
@@ -16,7 +16,7 @@ Cast from text to floating-point types is now compliant with PostgreSQL with the
 
 Firebolt has implemented account-level rate limits to ensure equitable resource usage among all users of the system engine. When these limits are exceeded, requests will be rejected with the following error message: `429: Account system engine resources usage limit exceeded`. This rate limit targets accounts with exceptionally high resource consumption. Accounts with typical resource usage should not be affected and require no further action.
 
-## New Features
+### New Features
 
 **Added `CREATE TABLE CLONE` to clone an existing table in a database**
 
@@ -48,7 +48,7 @@ You can now use `<AWS_SESSION_TOKEN>` with access keys to securely authenticate 
 * The following table-valued functions: `read_parquet`, `read_csv`, and `list_objects`.
 
 
-## Bug Fixes
+### Bug Fixes
 
 <!-- Auto Generated Markdown for FIR-37817 - Owned by Demian Hespe -->
 **Corrected runtime reporting**

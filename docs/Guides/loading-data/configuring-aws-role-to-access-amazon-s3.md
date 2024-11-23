@@ -31,7 +31,7 @@ This guide explains how to configure an IAM role and an AWS IAM permissions poli
 6. Select the **JSON** tab.
 7. Add a policy document that will allow Firebolt to access the S3 bucket and folder.
 
-   The following policy \(in JSON format\) provides Firebolt with the required permissions to unload data using a single bucket and folder path. Copy and paste the text into the policy editor \(make sure to replace `<bucket>` and `<prefix>` with the actual bucket name and path prefix\).
+   The following policy in JSON format provides Firebolt with the required permissions to unload data using a single bucket and folder path. Copy and paste the text into the policy editor. Replace `<bucket>` and `<prefix>` with the actual bucket name and path prefix.
 
    ```javascript
    {
