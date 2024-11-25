@@ -64,3 +64,14 @@ Fixed an issue where the "invalid input aggregate state type" error could occur 
 **Fixed a rare bug in subresult caching logic**
 
 Addressed a rare issue in the logic for caching and reusing subresults that could cause query failures with specific query patterns. This issue did not impact the correctness of query results.
+
+<!-- Markdown for FIR-38446 - Owned by Vitaliy Liudvichenko -->
+**Resolved issue preventing schema owners from granting "ANY" privileges**
+
+Fixed an issue where schema owners were unable to grant "ANY" privileges on their schema to other users.      
+For example:
+
+```sql
+GRANT SELECT ANY ON SCHEMA public TO ...
+```
+Schema owners can now execute this command which allows the specified user or role to perform SELECT operations on any table. 
