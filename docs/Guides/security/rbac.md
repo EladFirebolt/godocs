@@ -70,6 +70,7 @@ Permissions can be granted on accounts to allow creating, modifying and using da
 | MODIFY ANY ROLE     | Enables editing all current and future roles in the account.    |
 | CREATE USER         | Enables creating new users in the account.                                 |
 | MODIFY ANY USER     | Enables editing all current and future users in the account.    |
+| MONITOR [ANY USAGE] | Enables query history observability for the engines via `engine_running_queries` and `engine_query_history` views in `information_schema`. |
 
 #### Role
 Permissions can be granted on roles to allow modification of roles per account. 
@@ -93,6 +94,7 @@ Permissions can be granted on engines to allow usage, operation and modification
 | USAGE              | Enables using the engine to execute queries. |
 | OPERATE            | Enables stopping and starting the engine. |
 | MODIFY             | Enables dropping or altering any properties of the engine. |
+| MONITOR [USAGE]    | Enables query history observability for the engine via `engine_running_queries` and `engine_query_history` views in `information_schema` |
 
 #### Database
 Permissions can be granted on databases to allow usage and modification of databases per account. 
