@@ -25,13 +25,11 @@ FUNCTION(<exp1>, <exp2>)
 ```
 
 ### Aliases (Optional)
-
 ```sql
 FUNCTION_ALIAS(<exp1>, <exp2>)
 ```
 
 ## Parameters
-
 {: .no_toc}
 
 | Parameter | Description |
@@ -46,7 +44,7 @@ The `FUNCTION` function returns a result of type `DATATYPE`.
 
 **Example**
 
-The following code example (insert a one-sentence complete description of what the code does. You can use AI to help you generate this.) Provide a code example that is simple to follow. For example, instead of calculating the median over a range of 10,000 numbers, calculate it over 4 numbers. Use several examples to illustrate end cases.
+The following code example (insert a one-sentence complete description of what the code does. You can use AI to help you generate this.) Provide a code example that is simple to follow. For example, instead of calculating the median over a range of 10,000 numbers, calculate it over 4 numbers. Use several examples to illustrate end cases. Please also [check in your function examples as code](https://github.com/firebolt-analytics/packdb/tree/master/tests/sql/testdata/documented_examples/sql_functions) and [use the sql to docs transpiler](https://github.com/firebolt-analytics/packdb/tree/master/utils/sql-to-docs-transpiler) to create (interactive) documentation. This ensures that we cannot break documented sql examples in the future in new PackDB releases.
 
 ```sql
 SELECT
