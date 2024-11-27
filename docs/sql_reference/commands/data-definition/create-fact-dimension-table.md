@@ -65,7 +65,7 @@ Firebolt supports the following column constraints:
 | `NULL` \| `NOT NULL` | Determines if the column may or may not contain `NULL` values.                                                                                                                                                                     | `NOT NULL`    |
 
 {: .note}
-Nullable columns cannot be used in Firebolt primary or aggregating indexes.
+Nullable columns cannot be used in Firebolt primary or aggregating indexes. Additionally, only literals and the following functions are supported in default expressions: [CURRENT_DATE]({% link sql_reference/functions-reference/date-and-time/current-date.md %}), [LOCALTIMESTAMP]({% link sql_reference/functions-reference/date-and-time/localtimestamp.md %}), [CURRENT_TIMESTAMP]({% link sql_reference/functions-reference/date-and-time/current-timestamptz.md %}), and `NOW`.
 
 ### Example: Creating a table with `NULL` and `NOT NULL` values
 
@@ -145,3 +145,8 @@ Firebolt supports two types of [tables]({% link Overview/working-with-tables/wor
 
 The [CREATE TABLE]({% link sql_reference/commands/data-definition/create-fact-dimension-table.md %}) command defaults to a `FACT` table. `DIMENSION` tables are ideal for relatively small tables, up to tens of gigabytes, that are used in joins with `FACT` tables.
     
+## Related functions
+
+Firebolt also supports the following related functions:
+* [CREATE TABLE AS SELECT (CTAS)]({% link sql_reference/commands/data-definition/create-fact-dimension-table-as-select.md %}) &ndash; - Creates a table and loads data into it based on a `SELECT` query. 
+* [CREATE TABLE CLONE]({% link sql_reference/commands/data-definition/create-table-clone %}) &ndash; Creates a table that is a copy of an existing table in the database.
