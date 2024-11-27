@@ -106,7 +106,7 @@ After creating a table, you can manipulate the values using different `INSERT` s
 
 The `PRIMARY INDEX` is an optional sparse index that sorts and organizes data based on the indexed field as it is ingested, without affecting data scan performance. For more information, see [Primary indexes]({% link Guides/working-with-indexes/using-primary-indexes.md %}).
 
-#### Syntax&ndash;primary index
+#### Syntax
 {: .no_toc}
 
 ```sql
