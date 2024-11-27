@@ -9,8 +9,6 @@ parent: Data definition
 
 Creates a new table in the current database.
 
-Firebolt supports [CREATE TABLE AS SELECT (CTAS)]({% link sql_reference/commands/data-definition/create-fact-dimension-table-as-select.md %}).
-
 * Topic ToC
 {:toc}
 
