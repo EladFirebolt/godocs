@@ -38,16 +38,6 @@ CREATE [FACT|DIMENSION] TABLE [IF NOT EXISTS] <table_name>
 
 All identifiers are case-insensitive unless double-quotes are used. For more information, see [Object identifiers]({% link Reference/object-identifiers.md %}).
 
-- [CREATE TABLE](#create-table)
-  - [Syntax](#syntax)
-  - [Parameters](#parameters)
-  - [Column constraints and the default expression](#column-constraints-and-the-default-expression)
-    - [Example: Creating a table with `NULL` and `NOT NULL` values](#example-creating-a-table-with-null-and-not-null-values)
-    - [PRIMARY INDEX](#primary-index)
-      - [Syntax–primary index](#syntaxprimary-index)
-    - [PARTITION BY](#partition-by)
-    - [Table type](#table-type)
-
 ## Column constraints and the default expression
 
 Firebolt supports the following column constraints:
@@ -63,14 +53,14 @@ Firebolt supports the following column constraints:
 | `NULL` \| `NOT NULL` | Determines if the column may or may not contain `NULL` values.                                                                                                                                                                     | `NOT NULL`    |
 
 {: .note}
-Nullable columns cannot be used in Firebolt primary or aggregating indexes. Additionally, only literals and the following functions are supported in default expressions: [CURRENT_DATE]({% link sql_reference/functions-reference/date-and-time/current-date.md %}), [LOCALTIMESTAMP]({% link sql_reference/functions-reference/date-and-time/localtimestamp.md %}), [CURRENT_TIMESTAMP]({% link sql_reference/functions-reference/date-and-time/current-timestamptz.md %}), and `NOW`.
+Nullable columns cannot be used in Firebolt primary or aggregating indexes. Additionally, only literals and the following functions are supported in default expressions: [CURRENT_DATE]({% link sql_reference/functions-reference/date-and-time/current-date.md %}), [LOCALTIMESTAMP]({% link sql_reference/functions-reference/date-and-time/localtimestamp.md %}), [CURRENT_TIMESTAMP]({% link sql_reference/functions-reference/date-and-time/current-timestamptz.md %}), and NOW, the alias for CURRENT_TIMESTAMP.
 
 ### Example: Creating a table with `NULL` and `NOT NULL` values
 
 The following example illustrates different use cases for column definitions and `INSERT` statements:
 
-* **Explicit NULL insert**&ndash; a direct insertion of a `NULL` value into a particular column.
-* **Implicit NULL insert**&ndash; an `INSERT` statement with missing values for a particular column.
+* An **Explicit** `NULL` insert &ndash; a direct insertion of a `NULL` value into a particular column.
+* An **Implicit** `NULL` insert &ndash; an `INSERT` statement with missing values for a particular column.
 
 The following example creates a fact table `t1` with five columns, specifying if each column can contain `NULL` values, their default values, and a primary index on `col2`:
 
@@ -147,4 +137,4 @@ The [CREATE TABLE]({% link sql_reference/commands/data-definition/create-fact-di
 
 Firebolt also supports the following related functions:
 * [CREATE TABLE AS SELECT (CTAS)]({% link sql_reference/commands/data-definition/create-fact-dimension-table-as-select.md %}) &ndash; - Creates a table and loads data into it based on a `SELECT` query. 
-* [CREATE TABLE CLONE]({% link sql_reference/commands/data-definition/create-table-clone %}) &ndash; Creates a table that is a copy of an existing table in the database.
+* [CREATE TABLE CLONE]({% link sql_reference/commands/data-definition/index.md %}) &ndash; Creates a table that is a copy of an existing table in the database.
