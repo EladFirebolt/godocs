@@ -22,7 +22,7 @@ In order to set up a SAML 2.0 compliant service or application as your Identity 
    For each end-user that needs access to Firebolt:
     * Create a user in the service/application interface.
     * Ensure that each user’s email address is correctly specified. Firebolt uses these email addresses to create corresponding logins in Firebolt.
-   For more details, refer to [setting up SSO](sso.md).
+   For more details, refer to [setting up SSO](../Guides/security/sso/).
 
 3. **Obtain Required Values for IdP Setup**
 
@@ -104,7 +104,7 @@ ALTER ORGANIZATION vsko SET SSO = '{
 }';
 ```
 
-## Login using SSO
+## Log in using SSO
 
 1. Visit <a href="https://go.firebolt.io/login">go.firebolt.io/login</a>.
 2. Enter your organization name and select **Continue to login**. If you don’t remember your organization name, select **Find out** next to **Don’t know your organization name?**.
