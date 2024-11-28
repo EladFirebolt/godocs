@@ -11,13 +11,15 @@ parent: Configure SSO
 
 OneLogin is a cloud-based identity and access management platform that simplifies secure access to applications through single sign-on (SSO). Integrating OneLogin with Firebolt enhances security and streamlines user authentication for your team.
 
+To integrate OneLogin with Firebolt's platform, you need to configure both a [OneLogin application for Firebolt](#configure-onelogin-application) and [Firebolt's SSO for OneLogin](#configure-firebolt-for-onelogin). Detailed instructions can be found in the following sections:
+
 ## Configure OneLogin application
 
 1. In OneLogin, open to the dashboard and select **Applications** and **Add App**.
 2. Search for **SAML**, and select **SAML Test Connector (IdP w/attr)**.
-3. Change the Display Name of the app and click **Save**. This will be the name of the app that will appear in your OneLogin portal.
+3. Change the Display Name of the app and select **Save**. This will be the name of the app that will appear in your OneLogin portal.
 4. Open the **SSO** tab and copy the value for the **SAML 2.0 Endpoint (HTTP)**. This value will later be used in the Firebolt Configuration step. Note that logout endpoint is not used at this time.
-5. Click on the **View Details** link at the X.509 Certificate field and copy/download the certificate.
+5. Select the **View Details** link at the X.509 Certificate field and copy/download the certificate.
 6. Navigate to the **Configuration** tab and fill in the following values:
     - **Audience** - a URI in the following format: `urn:auth0:<tenant_name>:<org_name>-<provider>`, where `<tenant_name>` is app-firebolt-v2, `<org_name>` is the name of organization, and `<provider>` is the provider value set in Firebolt configuration step. **Example:** `urn:auth0:app-firebolt-v2:vsko2-onelogin`
     - **ACS (Consumer) URL Validator** - a valid regular expression. This field is used to ensure OneLogin posts the response to the correct URL, and it validates the ACS URL field.
@@ -26,11 +28,11 @@ OneLogin is a cloud-based identity and access management platform that simplifie
         > **`<provider>`** represents the provider we're configuring as our IdP.
         > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
 
-## Configure Firebolt to integrate with IdP
-Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+## Configure Firebolt for OneLogin
+Once your OneLogin application is configured, you can now configure Firebolt to integrate with OneLogin. This can be done using the Firebolt UI, or with SQL.
 
-### Integrate with IdP using the UI
-1. To configure the Firebolt SSO integration with OneLogin via the UI, Navigate to **Configure > SSO** in Firebolt.
+### Integrate with OneLogin using the UI
+1. To configure the Firebolt SSO integration with OneLogin using the UI, Navigate to **Configure > SSO** in Firebolt.
 2. Enter the following information:
 
     - ```signOnUrl```: The sign-on URL, provided by the SAML identity provider, to which Firebolt sends the SAML requests. The URL is IdP-specific and is determined by the identity provider during configuration. In Onelogin, this is the **SAML 2.0 Endpoint (HTTP)** value we copied in step 4. 
@@ -53,7 +55,7 @@ Once your Identity Provider(IdP) is configured, you can now configure Firebolt t
         }
       ```
 
-   In this example:
+   In the previous example:
      * given_name (first name) is mapped to the ```name``` field from the IdP.
      * family_name (last name) is mapped to the ```surname``` field from the IdP. 
 

@@ -7,7 +7,7 @@ parent: Configure SSO
 
 # Salesforce
 
-[Salesforce](https://www.salesforce.com/) is a cloud-based customer relationship management platform that offers applications for sales, marketing, commerce and IT. Salesforce supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Salesforce with Firebolt's platform, you must [configure your Salesforce organization](https://help.salesforce.com/s/articleView?id=sf.sso_sfdc_idp_saml_parent.htm&type=5) as a SAML identity provider (IdP) for an external service. Then, you must configure Firebolt's SSO to work with Salesforce. Detailed instructions can be found in the following sections:
+[Salesforce](https://www.salesforce.com/) is a cloud-based customer relationship management platform that offers applications for sales, marketing, commerce and IT. Salesforce supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Salesforce with Firebolt's platform, you must [configure your Salesforce organization](https://help.salesforce.com/s/articleView?id=sf.sso_sfdc_idp_saml_parent.htm&type=5) as a SAML identity provider (IdP) for an external service. Then, you must [configure Firebolt's SSO to work with Salesforce](#configure-firebolt-for-salesforce). Detailed instructions can be found in the following sections:
 
 #### Configure Salesforce application
 
@@ -24,10 +24,10 @@ parent: Configure SSO
 9. From the **Identity Provider** page in Saleforce's Lightning UI, select **Download Metadata**.
  
  Open the downloaded xml file and find the SingleSignOnService binding, Location attribute, which ends with `../HttpPost`. It will look like: `https://<your-salesforce-account>.my.salesforce.com/idp/endpoint/HttpPost`. Save this value to be used as the SignOnURL in Firebolt SSO configuration.
-3. Click **Download Certificate**, and convert the downloaded .crt file to PEM format. You could do this using the following command:
+3. Select **Download Certificate**, and convert the downloaded .crt file to PEM format. You could do this using the following command:
 ```openssl x509 -in original.crt -out sfcert.pem -outform PEM```
 where ```original.crt``` is the name of the downloaded .crt file.
-4. Click on the provided link to create a new connected app in Salesforce. 
+4. Select on the provided link to create a new connected app in Salesforce. 
 5. You will be redirected to the **Manage Connected Apps / New Connected App** view. Fill in required fields **Connected App Name, API Name** (for instance, type ‘Firebolt’) and **Contact email**.
 6. Move to **Web App Settings,** and check the **Enable SAML** box.
 7. Fill in the Entity Id field with value: `urn:auth0:firebolt-app-v2:<organization_name>-<provider>`, 
@@ -45,13 +45,13 @@ For example:
 > **`<organization_identifier>`** is the unique identifier for your Organization. To retrieve your **`<organization_identifier>`**, you can navigate to **Configure > SSO** in the Firebolt UI, and **Click Copy organization SSO identifier**. 
 
 
-9. Keep **Subject Type** as Username, and **Name ID Format** as unspecified. Click **Save**.
+9. Keep **Subject Type** as Username, and **Name ID Format** as unspecified. Select **Save**.
 
-#### Configure Firebolt 
-Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+#### Configure Firebolt for SalesForce
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done using either the Firebolt UI, or using SQL.
 
 ##### UI
-1. To configure the Firebolt SSO integration with Salesforce via the UI, Navigate to **Configure > SSO** in Firebolt. 
+1. To configure the Firebolt SSO integration with Salesforce using the UI, Navigate to **Configure > SSO** in Firebolt. 
 
 2. Once there, enter your Sign-on URL, Issuer, Provider, Label, Certificate, and field-mappings, where 
 

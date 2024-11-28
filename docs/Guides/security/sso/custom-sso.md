@@ -7,7 +7,7 @@ parent: Configure SSO
 
 # Custom Identity Provider
 
-A custom Identity Provider (IdP) allows you to use your organization's existing authentication system for secure access to Firebolt via Single Sign-On (SSO). By configuring a custom IdP, you ensure that your team can securely and efficiently access Firebolt resources using familiar credentials.
+A custom Identity Provider (IdP) allows you to use your organization's existing authentication system for secure access to Firebolt using Single Sign-On (SSO). By configuring a custom IdP, you ensure that your team can securely and efficiently access Firebolt resources using familiar credentials. To integrate a custom IdP with Firebolt's platform, you need to [configure your IdP for Firebolt](##configure-custom-identity-provider-idp) and [Firebolt's SSO for your custom IdP](#configure-firebolt-for-custom-idp). Detailed instructions can be found in the following sections:
 
 ## Configure Custom Identity Provider (IdP)
 
@@ -86,17 +86,17 @@ ALTER ORGANIZATION SET SSO = ‘{
 }’;
 ```
 
-To edit SSO settings via the UI, see [Configure Firebolt to integrate with IdP using the UI](###Configure Firebolt to integrate with IdP using the UI). 
+To edit SSO settings using the UI, see [Configure Firebolt to integrate with IdP using the UI](###Configure Firebolt to integrate with IdP using the UI). 
 
 ## Delete SSO
 
-To disable SSO login, you can delete the SSO settings using either SQL or the UI. To modify SSO settings via SQL, use the following command:
+To disable SSO login, you can delete the SSO settings using either SQL or the UI. To modify SSO settings using SQL, use the following command:
 
 ```sql
 ALTER ORGANIZATION SET SSO = DEFAULT;
 ```
 
-To modify SSO settings via the UI:
+To modify SSO settings using the UI:
 1. Select **Configure** to open the configure space, then choose **SSO**.
 
 2. Select **Clear SSO configuration**.
@@ -108,11 +108,11 @@ After the SSO configuration is deleted:
 - Users who were created through SSO will remain in your organization but will no longer be able to log in to Firebolt unless password-based login is enabled for them. You can enable this using the [ALTER LOGIN](../../../sql_reference/commands/access-control/alter-login.md) command.  
 - All logins with `is_sso_provisioned=true` will automatically be updated to `sso_provisioned=false`.
 
-## Configure Firebolt to integrate with IdP
-Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done via the Firebolt UI, or via SQL.
+## Configure Firebolt for custom IdP
+Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with your IdP. This can be done using either the Firebolt UI, or using SQL.
 
 ### Integrate with IdP using the UI
-1. To configure the Firebolt SSO integration via the UI, Navigate to **Configure > SSO** in Firebolt. 
+1. To configure the Firebolt SSO integration using the UI, Navigate to **Configure > SSO** in Firebolt. 
 2. Enter the following information:
 - ```Sign-on URL```: The URL provided by your SAML identity provider where Firebolt sends SAML requests. This URL is IdP-specific and is determined during the identity provider's configuration. 
 
@@ -127,7 +127,7 @@ Once your Identity Provider(IdP) is configured, you can now configure Firebolt t
   Once a provider is selected, it cannot be changed. To switch to a different provider, you must first delete the existing SSO configuration ([see below](#delete-sso)) and then set up a new one.
 
 - ```Label```:   The text displayed on the SSO login button. If left blank, the value from the **Provider** field will be used.
-- ```Certificate```:   The certificate used to verify communication between the identity provider and Firebolt. It must be in PEM or CER format. You can upload it via **Import certificate** or paste it directly into the provided text box.
+- ```Certificate```:   The certificate used to verify communication between the identity provider and Firebolt. It must be in PEM or CER format. You can upload it using the **Import certificate** button or paste it directly into the provided text box.
 - ```Sign-out URL```:   The URL provided by the application owner to redirect users when they sign out.
 - ```Field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. If this field remains empty when a login that represents the user is being created (read more in the [log in using SSO](#log-in-using-sso) section), the login's first and last name fields will contain “NA”. Those fields can be updated later by running the [ALTER LOGIN](../../../sql_reference/commands/access-control/alter-login.md) command. 
       Here’s an example of how to set up **Field mapping**:

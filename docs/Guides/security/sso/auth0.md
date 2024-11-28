@@ -2,14 +2,12 @@
 layout: default
 title: Auth0
 description: Learn how to configure Auth0 as your identity provider to work with SSO authentication for Firebolt. 
-great_grand_parent: Guides
-grand_parent: Configure security
 parent: Configure SSO
 ---
 
 # Auth0
 
-[Auth0](https://auth0.com/) is an identity management platform that provides authentication and authorization services for applications. Auth0 supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Auth0 with Firebolt's platform, you need to configure both an Auth0 application for Firebolt and Firebolt's SSO for Auth0. Detailed instructions can be found in the following sections:
+[Auth0](https://auth0.com/) is an identity management platform that provides authentication and authorization services for applications. Auth0 supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Auth0 with Firebolt's platform, you need to configure both an [Auth0 application for Firebolt](#configure-an-auth0-application) and [Firebolt's SSO for Auth0](#configure-firebolt-for-auth0). Detailed instructions can be found in the following sections:
 
 ## Configure an Auth0 application
 
@@ -41,9 +39,9 @@ parent: Configure SSO
     2. Note the **Issuer** for the following Firebolt configuration step.
     3. Select **Download Auth0 certificate**. These are needed to configuring Firebolt to work with the Auth0 IdP.
 16. Select the **Settings** tab. 
-17. Select **Enable** to enable the SSO via SAML2.0 on the IdP. You are now ready to configure Firebolt to use Auth0 as your IdP. 
+17. Select **Enable** to enable the SSO using SAML2.0 on the IdP. You are now ready to configure Firebolt to use Auth0 as your IdP. 
 
-## Configure Firebolt to integrate with Auth0
+## Configure Firebolt for Auth0
 
 Once your Identity Provider(IdP) is configured, you can now configure Firebolt to integrate with Auth0 either using SQL scripts in the **Develop Space** or through the user interface (UI) in the **Configure Space**.
 
