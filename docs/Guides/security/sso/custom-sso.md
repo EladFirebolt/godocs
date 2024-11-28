@@ -9,7 +9,7 @@ parent: Configure SSO
 
 A custom Identity Provider (IdP) allows you to use your organization's existing authentication system for secure access to Firebolt using Single Sign-On (SSO). By configuring a custom IdP, you ensure that your team can securely and efficiently access Firebolt resources using familiar credentials. 
 
-To integrate a custom IdP with Firebolt's platform, you need to [configure your IdP for Firebolt](##configure-custom-identity-provider-idp) and [Firebolt's SSO for your custom IdP](#configure-firebolt-for-custom-idp). Detailed instructions can be found in the following sections:
+To integrate a custom IdP with Firebolt's platform, you need to [configure your IdP for Firebolt](#configure-custom-identity-provider-idp) and [Firebolt's SSO for your custom IdP](#configure-firebolt-for-custom-idp). Detailed instructions can be found in the following sections:
 
 ## Configure Custom Identity Provider (IdP)
 
@@ -139,7 +139,7 @@ ALTER ORGANIZATION SET SSO = ‘{
 }’;
 ```
 
-To edit SSO settings using the UI, see [Configure Firebolt to integrate with IdP using the UI](###Configure Firebolt to integrate with IdP using the UI). 
+To edit SSO settings using the UI, see [Configure Firebolt to integrate with IdP using the UI](#integrate-with-idp-using-the-ui). 
 
 ## Delete SSO
 
