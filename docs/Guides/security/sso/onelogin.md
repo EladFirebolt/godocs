@@ -43,9 +43,6 @@ Once your OneLogin application is configured, you can now configure Firebolt to 
     - ```certificate```: The certificate to verify the communication between the identity provider and Firebolt. The certificate needs to be in PEM or CER format, and can be uploaded from your computer by choosing **Import certificate** or entered in the text box.
     - ```field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is           required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. 
 
-    {: .note}
-    Once a provider is selected, it cannot be changed. To switch to a different provider, you must first delete the existing SSO configuration ([see below](#delete-sso)) and then set up a new       one.
-
     Here’s an example of how to set up **Field mapping**:
 
       ```json  
