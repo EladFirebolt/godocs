@@ -7,7 +7,9 @@ parent: Configure SSO
 
 # Okta
 
-Okta is an identity and access management platform that enables secure Single Sign-On (SSO). Integrating Okta with Firebolt allows users to login using their existing credentials, simplifying access while maintaining security. This setup helps you and your team centralize authentication and manage user access. To integrate Okta with Firebolt's platform, you need to [configure your Okta application for Firebolt](#configure-okta-application) and [Firebolt's SSO for Okta](#configure-okta-application). Detailed instructions can be found in the following sections:
+Okta is an identity and access management platform that enables secure Single Sign-On (SSO). Integrating Okta with Firebolt allows users to login using their existing credentials, simplifying access while maintaining security. This setup helps you and your team centralize authentication and manage user access. 
+
+To integrate Okta with Firebolt's platform, you need to [configure your Okta application for Firebolt](#configure-okta-application) and [Firebolt's SSO for Okta](#configure-okta-application). Detailed instructions can be found in the following sections:
 
 ## Configure Okta application
 1. In the Okta Admin Console, select **Applications** from the left navigation panel.
