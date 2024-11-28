@@ -7,7 +7,9 @@ parent: Configure SSO
 
 # Salesforce
 
-[Salesforce](https://www.salesforce.com/) is a cloud-based customer relationship management platform that offers applications for sales, marketing, commerce and IT. Salesforce supports implementing secure login systems with authentication methods including single-sign on (SS0). To integrate Salesforce with Firebolt's platform, you must [configure your Salesforce organization](https://help.salesforce.com/s/articleView?id=sf.sso_sfdc_idp_saml_parent.htm&type=5) as a SAML identity provider (IdP) for an external service. Then, you must [configure Firebolt's SSO to work with Salesforce](#configure-firebolt-for-salesforce). Detailed instructions can be found in the following sections:
+[Salesforce](https://www.salesforce.com/) is a cloud-based customer relationship management platform that offers applications for sales, marketing, commerce and IT. Salesforce supports implementing secure login systems with authentication methods including single-sign on (SS0).
+
+To integrate Salesforce with Firebolt's platform, you must [configure your Salesforce organization](https://help.salesforce.com/s/articleView?id=sf.sso_sfdc_idp_saml_parent.htm&type=5) as a SAML identity provider (IdP) for an external service. Then, you must [configure Firebolt's SSO to work with Salesforce](#configure-firebolt-for-salesforce). Detailed instructions can be found in the following sections:
 
 #### Configure Salesforce application
 
