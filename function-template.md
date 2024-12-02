@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 # FUNCTION
-Function description, starting with a verb, such as Returns, Counts, Takes, Allows. Define what the function does without assuming prior knowledge, and without using the function to define itself. For example, if you want to define the Manhattan distance, do not define the function by saying that it calculates the Manhattan distance. State how the Manhattan distance is calculated using the simplest terms possible, and write the definition in terms that a 10th grader can follow. Do not use jargon which doesn't translate well, or parenthesis unless it's to define an abbreviation, or latinisms such as i.e. or e.g., or etc. Do not use personal pronouns including "we". Avoid passive voice if possible. If you add a link to our internal documentation, use this format as an example: [BIT_OR example](% link {sql_reference/functions-reference/aggregation/bit_or.html %}#examples).
+Function description, starting with a verb, such as Returns, Counts, Takes, Allows. Define what the function does without assuming prior knowledge, and without using the function to define itself. For example, if you want to define the Manhattan distance, do not define the function by saying that it calculates the Manhattan distance. State how the Manhattan distance is calculated using the simplest terms possible, and write the definition in terms that a 10th grader can follow. Do not use jargon which doesn't translate well, or parentheses unless it's to define an abbreviation, or latinisms such as i.e. or e.g., or etc. Do not use personal pronouns including "we". Avoid passive voice if possible.
 
 
 **Note**
@@ -19,7 +19,7 @@ Function description, starting with a verb, such as Returns, Counts, Takes, Allo
 ```sql
 FUNCTION(<exp1>, <exp2>)
 ```
-### Aliases (Optional)
+### Aliases (Optional) - remove this entire section if there aren't any
 ```sql
 FUNCTION_ALIAS(<exp1>, <exp2>)
 ```
