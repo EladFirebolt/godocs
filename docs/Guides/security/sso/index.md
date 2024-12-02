@@ -31,12 +31,12 @@ If your Audience URI is not configured correctly, Security Assertion Markup Lang
 
 Firebolt allows you to sign in using federated identities. The SSO implementation supports the following IdPs:
 
-- [Auth0](../sso/auth0.md)
-- [Okta](../sso/okta.md)
-- [OneLogin](../sso/onelogin.md)
-- [Salesforce](../sso/salesforce.md)
-- [PingFederate (Ping Identity)](../sso/pingfederate.md)
-- [Custom Identity provider](../sso/custom-sso.md)
+- [Auth0]({% link Guides/security/sso/auth0.md %})
+- [Okta]({% link Guides/security/sso/okta.md %})
+- [OneLogin]({% link Guides/security/sso/onelogin.md %})
+- [Salesforce]({% link Guides/security/sso/salesforce.md %})
+- [PingFederate (Ping Identity)]({% link Guides/security/sso/pingfederate.md %})
+- [Custom Identity provider]({% link Guides/security/sso/custom-sso.md %})
 
 If your IdP is not listed but supports SAML2.0, contact the [Firebolt support team](mailto:support@firebolt.io). 
 

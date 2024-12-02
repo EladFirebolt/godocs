@@ -22,7 +22,7 @@ In order to set up a SAML 2.0 compliant service or application as your Identity 
    For each end-user that needs access to Firebolt:
     * Create a user in the service/application interface.
     * Ensure that each user’s email address is correctly specified. Firebolt uses these email addresses to create corresponding logins in Firebolt.
-   For more details, refer to [setting up SSO](../Guides/security/sso/).
+   For more details, refer to [setting up SSO]({% link Guides/security/sso/index.md %}).
 
 3. **Obtain Required Values for IdP Setup**
 
@@ -39,7 +39,7 @@ In order to set up a SAML 2.0 compliant service or application as your Identity 
     
     > **`<provider>`** : The provider being configured as your IdP.
     
-    > **`<organization_identifier>`** : A unique identifier for your organization. To retrieve this value, navigate to Configure > SSO in the Firebolt UI and select Copy organization SSO             identifier.
+    > **`<organization_identifier>`** : A unique identifier for your organization. To retrieve this value, navigate to **Configure > SSO** in the Firebolt UI and select Copy organization SSO identifier.
 
         {: .note} 
         The **Audience URI** (or Audience Restriction) defines the intended recipient of the SAML (Security Assertion Markup Language) Assertion. Depending on the vendor, this might also be   
@@ -71,7 +71,7 @@ Once your Identity Provider(IdP) is configured, you can now configure Firebolt t
 - ```Label```:   The text displayed on the SSO login button. If left blank, the value from the **Provider** field will be used.
 - ```Certificate```:   The certificate used to verify communication between the identity provider and Firebolt. It must be in PEM or CER format. You can upload it using the **Import certificate** button or paste it directly into the provided text box.
 - ```Sign-out URL```:   The URL provided by the application owner to redirect users when they sign out.
-- ```Field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. If this field remains empty when a login that represents the user is being created (read more in the [log in using SSO](#log-in-using-sso) section), the login's first and last name fields will contain “NA”. Those fields can be updated later by running the [ALTER LOGIN](../../../sql_reference/commands/access-control/alter-login.md) command. 
+- ```Field mapping```: Mapping to your identity provider's first and last name in key-value pairs. If additional fields are required, choose **Add another key-value pair**. Mapping is required for Firebolt to fill in the login’s given and last names the first time the user logs in using SSO. If this field remains empty when a login that represents the user is being created (read more in the [log in using SSO](#log-in-using-sso) section), the login's first and last name fields will contain “NA”. Those fields can be updated later by running the [ALTER LOGIN]({% link sql_reference/commands/access-control/alter-login.md %}) command. 
       Here’s an example of how to set up **Field mapping**:
 
       ```json  
@@ -125,7 +125,7 @@ You’ll be redirected to your identity provider (IdP) for authentication. Once 
 
 ## Edit SSO settings
 
-SSO settings can be edited in two ways - using SQL or the UI.  To edit SSO settings using SQL, use the [ALTER ORGANIZATION](../../../sql_reference/commands/data-definition/alter-organization.md) statement. For example:
+SSO settings can be edited in two ways - using SQL or the UI.  To edit SSO settings using SQL, use the [ALTER ORGANIZATION]({% link sql_reference/commands/data-definition/alter-organization.md %}) statement. For example:
 
 ```sql
 ALTER ORGANIZATION SET SSO = ‘{
@@ -150,7 +150,7 @@ ALTER ORGANIZATION SET SSO = DEFAULT;
 ```
 
 To modify SSO settings using the UI:
-1. Select **Configure** to open the configure space, then choose **SSO**.
+1. Select **Configure** to open the **Configure Space**, then choose **SSO**.
 
 2. Select **Clear SSO configuration**.
 
@@ -158,5 +158,5 @@ To modify SSO settings using the UI:
 
 
 After the SSO configuration is deleted:  
-- Users who were created through SSO will remain in your organization but will no longer be able to log in to Firebolt unless password-based login is enabled for them. You can enable this using the [ALTER LOGIN](../../../sql_reference/commands/access-control/alter-login.md) command.  
+- Users who were created through SSO will remain in your organization but will no longer be able to log in to Firebolt unless password-based login is enabled for them. You can enable this using the [ALTER LOGIN]({% link sql_reference/commands/access-control/alter-login.md %}) command.  
 - All logins with `is_sso_provisioned=true` will automatically be updated to `sso_provisioned=false`.
