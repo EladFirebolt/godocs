@@ -3,6 +3,7 @@ layout: default
 title: Custom Identity Provider
 description: Learn how to configure a custom Identity Provider integration with Firebolt. 
 parent: Configure SSO
+nav_order: 6
 ---
 
 # Custom Identity Provider

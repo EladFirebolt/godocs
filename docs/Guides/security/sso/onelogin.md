@@ -5,6 +5,7 @@ description: Learn how to configure OneLogin as your identity provider to work w
 great_grand_parent: Guides
 grand_parent: Configure security
 parent: Configure SSO
+nav_order: 3
 ---
 
 # OneLogin

@@ -3,6 +3,7 @@ layout: default
 title: Salesforce
 description: Learn how to configure Salesforce as your identity provider to work with SSO authentication for Firebolt. 
 parent: Configure SSO
+nav_order: 5
 ---
 
 # Salesforce

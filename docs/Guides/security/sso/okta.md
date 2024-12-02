@@ -3,6 +3,7 @@ layout: default
 title: Okta
 description: Learn how to configure Okta as your identity provider to work with SSO authentication for Firebolt. 
 parent: Configure SSO
+nav_order: 2
 ---
 
 # Okta

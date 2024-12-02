@@ -5,6 +5,7 @@ description: Learn how to configure PingFederate as your identity provider to wo
 great_grand_parent: Guides
 grand_parent: Configure security
 parent: Configure SSO
+nav_order: 4
 ---
 
 # PingFederate (Ping Identity)

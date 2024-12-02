@@ -3,6 +3,7 @@ layout: default
 title: Auth0
 description: Learn how to configure Auth0 as your identity provider to work with SSO authentication for Firebolt. 
 parent: Configure SSO
+nav_order: 1
 ---
 
 # Auth0
