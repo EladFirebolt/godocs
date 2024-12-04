@@ -1,7 +1,5 @@
 # Firebolt Release Notes - Version 4.11
 
-## Behavior Changes
-
 ## New Features
 
 <!-- Auto Generated Markdown for FIR-36897 - Owned by Demian Hespe -->
