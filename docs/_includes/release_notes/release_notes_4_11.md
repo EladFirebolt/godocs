@@ -14,10 +14,6 @@ Added the window function `FIRST_VALUE`.
 
 ## Bug Fixes
 
-<!-- Auto Generated Markdown for FIR-37817 - Owned by Demian Hespe -->
-### Resolved a discrepancy in execution time reporting to include all query execution steps for the UI and JSON responses
-Fixed an issue where the execution time reported in the UI and JSON responses did not include all steps of query execution.
-
 
 <!-- Auto Generated Markdown for FIR-38446 - Owned by Vitaliy Liudvichenko -->
 ### Adjusted the behavior of the `GRANT` and `REVOKE` commands for situations where an object owner could not grant or revoke an ANY-privilege on that object
