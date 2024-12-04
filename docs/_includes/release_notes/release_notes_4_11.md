@@ -4,11 +4,6 @@
 
 ## New Features
 
-<!-- Auto Generated Markdown for FIR-34557 - Owned by Timo Kersten -->
-### Implemented a new scheduler for managing threads independently of query stages
-We implemented a new scheduler that manages threads independently from the number of query stages.
-
-
 <!-- Auto Generated Markdown for FIR-36897 - Owned by Demian Hespe -->
 ### Introduced the `GEOGRAPHY` data type and functions for geospatial data handling
 Added a new data type `GEOGRAPHY` and related functions for working with geospatial data.
@@ -18,8 +13,6 @@ Added a new data type `GEOGRAPHY` and related functions for working with geospat
 ### Added the window function `FIRST_VALUE`
 Added the window function `FIRST_VALUE`.
 
-
-## Performance Improvements
 
 ## Bug Fixes
 
