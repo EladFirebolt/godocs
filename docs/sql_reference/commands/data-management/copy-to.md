@@ -20,7 +20,7 @@ Copies (exports or unloads) the results of a `SELECT` query to an Amazon S3 loca
 ```sql
 COPY (<select_query>)
   TO '<location>'
-  CREDENTIALS = <aws_credentials>
+  CREDENTIALS = { AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' [ AWS_SESSION_TOKEN = '<aws_session_token>' ] | AWS_ROLE_ARN = '<aws_role_arn>' [ AWS_ROLE_EXTERNAL_ID = '<aws_role_external_id>' ] }
 [ TYPE = CSV | TSV | JSON | PARQUET ]
 [ COMPRESSION = GZIP | SNAPPY | NONE ]
 [ INCLUDE_QUERY_ID_IN_FILE_NAME = TRUE | FALSE ]
@@ -29,6 +29,8 @@ COPY (<select_query>)
 [ MAX_FILE_SIZE = <bytes> ]
 [ OVERWRITE_EXISTING_FILES = FALSE | TRUE ]
 ```
+
+
 ## Parameters 
 {: .no_toc} 
 

@@ -34,11 +34,12 @@ LIST_OBJECTS ( url => <url>[, aws_key_id => <aws_key_id>][, aws_secret_key => <a
 | `<aws_key_id>`                | An AWS key ID.                                                                                      | `TEXT`                |
 |:------------------------------|:-------------------------------------------------------------------------------------------------|:----------------------|
 | `<aws_secret_key>`            | An AWS secret key.                                                                                  | `TEXT`                |
+| `<aws_session_token>`            | An AWS session token.                                                                                  | `TEXT`                |
 
 
-The AWS credential parameters, `aws_key_id`, `aws_secret_key` are optional, and are not required to access public buckets.
+The AWS credential parameters, `aws_key_id`, `aws_secret_key`, and `aws_session_token` are optional, and are not required to access public buckets. 
 
-If you provide either `aws_key_id` or `aws_secret_key`, you must provide both.
+If you provide either `aws_key_id` or `aws_secret_key`, you must provide both. AWS session token is optional.
 
 ## Return Type
 
