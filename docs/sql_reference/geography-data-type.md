@@ -46,11 +46,15 @@ Firebolts supports creating `GEOGRAPHY` from the industry standard GeoJSON, Well
 
 ### Cast from BYTEA
 
-The cast from `BYTEA` to `GEOGRAPHY` behaves exactly like the [ST_ASEWKB](../sql_reference/functions-reference/geospatial/st_asewkb.md) function.
+The cast from `BYTEA` to `GEOGRAPHY` behaves exactly like the [ST_GEOGFROMWKB](../sql_reference/functions-reference/geospatial/st_geogfromwkb.md) function.
 
 ### Cast to BYTEA
 
-The cast from `GEOGRAPHY` to `BYTEA` behaves exactly like the [ST_GEOGFROMWKB](../sql_reference/functions-reference/geospatial/st_geogfromwkb.md) function.
+The cast from `GEOGRAPHY` to `BYTEA` behaves exactly like the [ST_ASEWKB](../sql_reference/functions-reference/geospatial/st_asewkb.md) function.
+
+### Cast from TEXT
+
+The cast from `TEXT` to `GEOGRAPHY` automatically detects the decoding used and supports the [Extended Well-Known Text (EWKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946), and hex-encoded [Extended Well-Known Binary (EWKB)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry#Well-known_binary) formats. It behaves exactly like [ST_GEOGFROMTEXT](../sql_reference/functions-reference/geospatial/st_geogfromtext.md) for [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) inputs, like [ST_GEOGFROMGEOJSON](../sql_reference/functions-reference/geospatial/st_geogfromgeojson.md) for [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) inputs, and like [ST_GEOGFROMWKB](../sql_reference/functions-reference/geospatial/st_geogfromwkb.md)[(DECODE(input, 'HEX'))](../sql_reference/functions-reference/bytea/decode.md) for hex-encoded [Well-Known Binary (WKB)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry#Well-known_binary) inputs.
 
 ### Cast to TEXT
 

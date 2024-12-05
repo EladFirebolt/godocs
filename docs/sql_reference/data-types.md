@@ -283,7 +283,7 @@ The following table lists which type conversions are supported and in which cont
 | **BIGINT**      | | Assignm. |      | Assignm. | Implicit   | Assignm. | | Explicit   | Implicit   | | | | | |
 | **REAL**        | | Assignm. | Assignm. |      | Implicit   | Assignm. | | Explicit   | Assignm.   | | | | | |
 | **DOUBLE**      | | Assignm. | Assignm. | Assignm. |      | Assignm. | | Explicit   | Assignm.   | | | | | |
-| **TEXT**        | | Assignm. | Assignm. | Assignm. | Assignm. |      | Explicit   | Explicit   | Explicit   | Assignm. | Assignm. | Assignm. | Assignm.  | |
+| **TEXT**        | | Assignm. | Assignm. | Assignm. | Assignm. |      | Explicit   | Explicit   | Explicit   | Assignm. | Assignm. | Assignm. | Assignm.  | Assignm. |
 | **BYTEA**       | | | | | | Explicit   |      | | | | | | | Implicit |
 | **BOOLEAN**     | | Explicit   | | | | Assignm. | |      | | | | | | |
 | **NUMERIC**     | | Assignm. | Assignm. | Explicit   | Implicit   | Assignm. | | |  Explicit  | | | | | |
