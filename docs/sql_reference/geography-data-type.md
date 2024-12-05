@@ -6,6 +6,9 @@ nav_exclude: true
 search_exclude: false
 ---
 
+{: .note}
+Firebolt's geospatial capabilities are currently in a beta stadium. We are gathering feedback and refining this feature further.
+
 # GEOGRAPHY data type
 {:.no_toc}
 

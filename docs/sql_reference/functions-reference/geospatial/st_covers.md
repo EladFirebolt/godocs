@@ -14,8 +14,9 @@ If either `geo1` or `geo2` is empty, `ST_COVERS` will return `FALSE`.
 
 Before performing the coverage check, `geo1` and `geo2` are aligned through a snapping process, ensuring precise calculation. For more details on snapping, refer to the [snapping documentation](../../geography-data-type.md#snapping).
 
-## Comparison with `ST_CONTAINS`
-`ST_COVERS` is similar to `ST_CONTAINS`, but there is a key distinction: `ST_CONTAINS` returns `FALSE` if all points in `geo2` lie exactly on the boundary of `geo1`, while `ST_COVERS` will return `TRUE` in this case.
+## Comparison with [ST_CONTAINS](st_contains.md)
+`ST_COVERS` is similar to `ST_CONTAINS`, but there is a key distinction: `ST_CONTAINS` returns `FALSE` if all points in `geo2` lie exactly on the boundary of `geo1`, while `ST_COVERS` will return `TRUE` in this case. If this distinction is not important, use `ST_COVERS`, which is more efficient to compute in Firebolt.
+
 
 
 ## Syntax
@@ -40,3 +41,8 @@ ST_COVERS(<geo1>, <geo2>)
 {: .no_toc}
 
 {% include sql_examples/st_covers.md %}
+
+## Example
+{: .no_toc}
+
+{% include sql_examples/st_covers_contains_comparison.md %}
