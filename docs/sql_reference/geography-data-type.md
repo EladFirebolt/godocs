@@ -125,3 +125,11 @@ Functions that determine relations between `GEOGRAPHY` objects perform a process
 Objects with a `GEOGRAPHY` data type cannot be compared. This means that `ORDER BY` or comparison operators are not supported on `GEOGRAPHY` columns.
 
 This also means that `GEOGRAPHY` columns cannot be used in `GROUP BY` clauses because they cannot be compared for equality.
+
+## Driver version requirements
+The following minimum driver versions are required to use the `GEOGRAPHY` data type:
+- [Python]({% link Guides/developing-with-firebolt/connecting-with-Python.md %}) - version 1.6.0.
+- [JDBC]({% link Guides/developing-with-firebolt/connecting-with-jdbc.md %}) - version 3.4.0.
+- [Node.js]({% link Guides/developing-with-firebolt/connecting-with-nodejs.md %}) - any version.
+- [Go]({% link Guides/developing-with-firebolt/connecting-with-go.md %}) - version 1.3.1.
+- [.NET]({% link Guides/developing-with-firebolt/connecting-with-net-sdk.md %}) - version 1.4.0.
