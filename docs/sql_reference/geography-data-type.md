@@ -7,7 +7,7 @@ search_exclude: false
 ---
 
 {: .note}
-Firebolt's geospatial capabilities are currently in a beta stadium. We are gathering feedback and refining this feature further.
+Firebolt's geospatial capabilities are currently in a beta release. We are gathering feedback and further refining this feature.
 
 # GEOGRAPHY data type
 {:.no_toc}
