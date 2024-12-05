@@ -42,7 +42,7 @@ Firebolt supports the following `GEOGRAPHY` types, with examples provided in the
 
 ## Input and output
 
-Firebolts supports creating `GEOGRAPHY` from the industry standard GeoJSON, Well-Known Text (WKT), and Well-Known Binary (WKB) representations, as well as the extended formats EWKT and EWKB introduced by the PostGIS extension. See the corresponding [function documentations](../sql_reference/functions-reference/geospatial/index.md) for further detail.
+Firebolt supports creating `GEOGRAPHY` from the industry standard GeoJSON, Well-Known Text (WKT), and Well-Known Binary (WKB) representations, as well as the extended formats EWKT and EWKB introduced by the PostGIS extension. See the corresponding [function documentations](../sql_reference/functions-reference/geospatial/index.md) for further detail.
 
 ### Cast from BYTEA
 
@@ -62,7 +62,7 @@ The cast from `GEOGRAPHY` to `TEXT` returns the hexadecimal representation of th
 
 ### Normalization
 
-For all input formats, Firebolt will apply certain normalization steps to the input. These steps ensure that Firebolt can perform operations on them efficiently and correctly.
+For all input formats, Firebolt applies normalization steps to the input. These steps ensure that Firebolt can perform operations efficiently and correctly.
 - All shapes that overlap a Polygon will be removed. This means that Polygons may be merged if they overlap and LineStrings may be cut to only include the parts outside of any Polygons.
 
 <div style="display: flex; justify-content: flex-start;">
@@ -95,7 +95,7 @@ Additionally, Firebolt fixes some otherwise invalid inputs when reading:
         <figcaption>In the output, the hole has been split at the intersection. The resulting Polygon has two holes. One consisting of the red vertices and one consisting of the green vertices.</figcaption>
     </figure>
 </div>
-- Degenerate parts of ploygons are removed, potentially splitting the Polygon. Parts of Polygons are considered degenerate if they collapse to a single line or point.
+- Degenerate parts of Polygons are removed, potentially splitting the Polygon. Parts of Polygons are considered degenerate if they collapse to a single line or point.
 
 <div style="display: flex; justify-content: flex-start;">
     <figure style="width: 400px; margin-right: 20px;">
