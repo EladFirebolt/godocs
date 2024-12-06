@@ -32,7 +32,7 @@ Topics:
 3. **Firebolt service account** &ndash;
    - Access to an organization in Firebolt. If you don't have access, you can [create an organization]({% link Guides/managing-your-organization/creating-an-organization.md %}).
    - Access to a Firebolt database and engine. If you don't have access, you can [create a database]({% link Guides/getting-started/get-started-sql.md %}#create-a-database) and [create an engine]({% link Guides/getting-started/get-started-sql.md %}#create-an-engine). 
-   - Access to a Firebolt service account, which is used for programmatic access, its [service account id]({% link Guides/managing-your-organization/service-accounts.md %}#get-a-service-account-id) and [secret]({% link Guides/managing-your-organization/service-accounts.md %}#generate-a-secret-using-the-ui). If you don't have access, you can [create a service account]({% link Guides/managing-your-organization/service-accounts.md %}#create-a-service-account).
+   - Access to a Firebolt service account, which is used for programmatic access, its [service account ID]({% link Guides/managing-your-organization/service-accounts.md %}#get-a-service-account-id) and [secret]({% link Guides/managing-your-organization/service-accounts.md %}#generate-a-secret-using-the-ui). If you don't have access, you can [create a service account]({% link Guides/managing-your-organization/service-accounts.md %}#create-a-service-account).
 
 ## Configure your Estuary Flow source
 
