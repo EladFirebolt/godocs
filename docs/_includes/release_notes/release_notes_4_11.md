@@ -30,5 +30,5 @@ Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first
 ## Bug Fixes
 
 <!-- Auto Generated Markdown for FIR-38446 - Owned by Vitaliy Liudvichenko -->
-### Adjusted the behavior of the `GRANT` and `REVOKE` commands
+### Fix for `GRANT` and `REVOKE` commands
 Corrected the behavior of the `GRANT` and `REVOKE` commands to address situations where an object owner was unable to grant or revoke an ANY-privilege on the object.
