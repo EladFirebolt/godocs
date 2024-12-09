@@ -1,4 +1,4 @@
-## DB version 4.8
+## Firebolt Release Notes - Version 4.8
 
 ### New Features
 
@@ -34,7 +34,6 @@ Added the following aggregate functions:
 **Added support to meet HIPAA regulations for health information**
 Added [support to meet federal HIPAA regulations](../../Overview/security#hipaa-compliance) to ensure the confidentiality, integrity, and availability of electronic protected health information within the Firebolt platform.
 
-
 ### Performance Improvements
 
 <!-- Auto Generated Markdown for FIR-36922 - Owned by Ori Brostovski -->
@@ -44,7 +43,6 @@ Improved expression comparison logic to better recognize identical expressions w
 <!-- Auto Generated Markdown for FIR-37388 - Owned by Arsenii Krasikov -->
 **Improving cold reads by reducing the amount of Amazon S3 requests needed to load data**
 Improved the performance of cold reads by minimizing the number of Amazon S3 requests required to load data. In the case of tiny tablets, this improvement lead to a 50% improvement in performance.
-
 
 ### Bug Fixes
 

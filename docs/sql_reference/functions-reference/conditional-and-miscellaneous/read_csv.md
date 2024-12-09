@@ -19,6 +19,7 @@ READ_CSV (
     [, compression => <file_compression>]
     [, access_key_id => <access_key_id>]
     [, secret_access_key => <secret_access_key>]
+    [, aws_session_token => <aws_session_token>]
     [, header => <csv_has_header_row>]
     [, delimiter => <field_delimiter>]
     [, quote => { "'" | '"' | SINGLE_QUOTE | DOUBLE_QUOTE}]
@@ -37,6 +38,7 @@ READ_CSV (
 | `<compression>`               | The [compression type](../../commands/data-definition/create-external-table.md#compression) of the input file. If `compression` is not set, `compression` is inferred from the file extension.           | `TEXT`                |
 | `<access_key_id>`                | The AWS key ID.                                                                                      | `TEXT`                |
 | `<secret_access_key>`            | The AWS secret key.                                                                                  | `TEXT`                |
+| `<aws_session_token>`            | The AWS session token.                                                                                  | `TEXT`                |
 | `<header>`                    | Set to `TRUE` if the first row of the CSV file contains a header row containing the column names.                                 | `TEXT`                |
 | `<delimiter>`                 | Specify the character used to separate fields. The default delimiter is a comma (`,`).                                                            | `TEXT`                |
 | `<quote>`                     | Specify the character used for quoting fields. The default is double quote (`"`). If a single quote is specified, the quote character will be set to (`'`). Accepts only `DOUBLE_QUOTE`, `SINGLE_QUOTE`, `'`, or `"`.     | `TEXT`                |
@@ -58,7 +60,7 @@ The following apply:
 
 * Parameters must be named using the following syntax: `=>`.
 
-* If you provide either `access_key_id` or `secret_access_key`, you must provide both.
+* If you provide either `access_key_id` or `secret_access_key`, you must provide both. AWS session token is optional.
 
 ## Return Type
 
