@@ -8,7 +8,7 @@ published: true
 
 # ST_GEOGFROMTEXT
 
-Converts a [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) string into an object with data type `GEOGRAPHY`. The [extended WKT format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry#Format_variations) is supported only for Spatial Reference Identifier (SRID) 4326, which corresponds to the [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS_84) coordinate system.
+Constructs a `GEOGRAPHY` object from a [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) string. The [extended WKT format](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry#Format_variations) is supported only for Spatial Reference Identifier (SRID) 4326, which corresponds to the [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System#WGS_84) coordinate system.
 
 ## Syntax
 {: .no_toc}
