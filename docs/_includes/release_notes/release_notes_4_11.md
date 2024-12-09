@@ -22,10 +22,6 @@ This beta release includes the following functions:
 * [ST_X]({% link sql_reference/functions-reference/geospatial/st_x.md %}) &ndash; Extracts the longitude coordinate of a `GEOGRAPHY` Point.
 * [ST_Y]({% link sql_reference/functions-reference/geospatial/st_y.md %}) &ndash; Extracts the latitude coordinate of a `GEOGRAPHY` Point.
 
-<!-- Auto Generated Markdown for FIR-36663 - Owned by Kfir Yehuda -->
-### Added the window function `FIRST_VALUE`
-Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first-value.md %}) window function that returns the first value evaluated in a specified window frame.
-
 ## New Features
 
 ### Added keyboard shortcuts to the Firebolt Develop Space
