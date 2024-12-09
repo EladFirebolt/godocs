@@ -23,7 +23,7 @@ This beta release includes the following functions:
 * [ST_Y]({% link sql_reference/functions-reference/geospatial/st_y.md %}) &ndash; Extracts the latitude coordinate of a `GEOGRAPHY` Point.
 
 **Added keyboard shortcuts to the Firebolt Develop Space**
-The user interface in the Firebolt **Develop Space** added the following [keyboard shortcuts]({% link Guides/query-data/keyboard-shortcuts-for-sql-editor.md}):
+The user interface in the Firebolt **Develop Space** added the following [keyboard shortcuts]({% link Guides/query-data/keyboard-shortcuts-for-sql-editor.md %}):
 * Cmd + Enter &ndash; Runs the current query.
 * Cmd+Shift+Enter &ndash; Runs all queries in a script.
 
