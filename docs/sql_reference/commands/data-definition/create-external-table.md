@@ -122,15 +122,16 @@ The credentials for accessing your data on AWS S3 using access key & secret.
 #### Syntax&ndash;authenticating using an access key and secret
 
 ```sql
-CREDENTIALS = (AWS_KEY_ID = '<ID>' AWS_SECRET_KEY = '<secret>' )
+CREDENTIALS = (AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' [ AWS_SESSION_TOKEN = '<aws_session_token>' ] )
 ```
 ## Parameters 
 {: .no_toc} 
 
 | Parameter          | Description                                             | Data type |
 |: ------------------ |: ------------------------------------------------------- |: --------- |
-| `<ID>`     | The AWS access key ID for the authorized app (Firebolt) | `TEXT `     |
-| `<secret>` | The AWS secret access key for the app (Firebolt)        | `TEXT`      |
+| `aws_key_id`     | The AWS access key ID for the authorized app (Firebolt) | `TEXT `     |
+| `aws_secret_key` | The AWS secret access key for the app (Firebolt)        | `TEXT`      |
+| `aws_session_token` | The AWS session token for the app (Firebolt)        | `TEXT`      |
 
 {: .note}
 In case you don't have the access key and secret to access your S3 bucket, read more [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) on how to obtain them.
