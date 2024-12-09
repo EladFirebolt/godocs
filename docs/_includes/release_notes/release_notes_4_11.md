@@ -1,6 +1,6 @@
 # Firebolt Release Notes - Version 4.11
 
-## New Features
+### New Features
 
 <!-- Auto Generated Markdown for FIR-36897 - Owned by Demian Hespe -->
 **Introduced the `GEOGRAPHY` data type and functions for geospatial data handling [Beta]**
@@ -30,7 +30,7 @@ The user interface in the Firebolt **Develop Space** added the following [keyboa
 **Added the window function `FIRST_VALUE`**
 Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first-value.md %}) window function that returns the first value evaluated in a specified window frame.
 
-## Bug Fixes
+### Bug Fixes
 
 <!-- Auto Generated Markdown for FIR-38446 - Owned by Vitaliy Liudvichenko -->
 **Fix for `GRANT` and `REVOKE` commands**
