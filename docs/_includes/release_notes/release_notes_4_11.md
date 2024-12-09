@@ -26,6 +26,15 @@ This beta release includes the following functions:
 ### Added the window function `FIRST_VALUE`
 Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first-value.md %}) window function that returns the first value evaluated in a specified window frame.
 
+## New Features
+
+### Added keyboard shortcuts to the Firebolt Develop Space
+The user interface in the Firebolt **Develop Space** added the following [keyboard shortcuts]({% link Guides/query-data/keyboard-shortcuts-for-sql-editor.md}):
+* Cmd + Enter &ndash; Runs the current query.
+* Cmd+Shift+Enter &ndash; Runs all queries in a script.
+
+### Added the window function `FIRST_VALUE`
+Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first-value.md %}) window function that returns the first value evaluated in a specified window frame.
 
 ## Bug Fixes
 
