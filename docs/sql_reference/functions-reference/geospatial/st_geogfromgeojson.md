@@ -8,7 +8,7 @@ published: true
 
 # ST_GEOGFROMGEOJSON
 
-Converts shapes formatted as a [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) string into an object with a `GEOGRAPHY` data type. 
+Constructs a `GEOGRAPHY` object from a [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) string.
 
 The [GeoJSON standard](https://datatracker.ietf.org/doc/html/rfc7946) specifies that GeoJSON points are WGS 84 coordinates, and GeoJSON line segments are planar edges, meaning straight cartesian lines. However, contrary to that, in Firebolt, the line segments are interpreted as geodesic arcs.
 
