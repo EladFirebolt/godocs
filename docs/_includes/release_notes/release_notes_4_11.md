@@ -29,9 +29,3 @@ The user interface in the Firebolt **Develop Space** added the following [keyboa
 
 **Added the window function `FIRST_VALUE`**
 Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first-value.md %}) window function that returns the first value evaluated in a specified window frame.
-
-### Bug Fixes
-
-<!-- Auto Generated Markdown for FIR-38446 - Owned by Vitaliy Liudvichenko -->
-**Fix for `GRANT` and `REVOKE` commands**
-Corrected the behavior of the `GRANT` and `REVOKE` commands to address situations where an object owner was unable to grant or revoke an ANY-privilege on the object.
