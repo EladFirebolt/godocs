@@ -4,6 +4,7 @@
 
 <!-- Auto Generated Markdown for FIR-36897 - Owned by Demian Hespe -->
 **Introduced the `GEOGRAPHY` data type and functions for geospatial data handling [Beta]**
+
 Added a new [GEOGRAPHY]({% link sql_reference/geography-data-type.md %}) data type and functions for working with geospatial data. Firebolt supports the three industry standard formats [Well-Known Text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), [Well-Known Binary (WKB)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry#Well-known_binary), and [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) for geospatial data.
 
 This beta release includes the following functions:  
@@ -23,9 +24,11 @@ This beta release includes the following functions:
 * [ST_Y]({% link sql_reference/functions-reference/geospatial/st_y.md %}) &ndash; Extracts the latitude coordinate of a `GEOGRAPHY` Point.
 
 **Added keyboard shortcuts to the Firebolt Develop Space**
+
 The user interface in the Firebolt **Develop Space** added the following [keyboard shortcuts]({% link Guides/query-data/keyboard-shortcuts-for-sql-editor.md %}):
 * Cmd + Enter &ndash; Runs the current query.
 * Cmd+Shift+Enter &ndash; Runs all queries in a script.
 
 **Added the window function `FIRST_VALUE`**
+
 Added a new [FIRST_VALUE]({% link sql_reference/functions-reference/window/first-value.md %}) window function that returns the first value evaluated in a specified window frame.
