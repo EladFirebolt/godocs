@@ -51,7 +51,7 @@ FROM <externalLocations>
     [ <csv_options> ]
 
 <credentials>:
-    { AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' [ AWS_SESSION_TOKEN = '<aws_session_token>' ] 
+    { AWS_ACCESS_KEY_ID = '<aws_access_key_id>' AWS_SECRET_ACCESS_KEY = '<aws_secret_access_key>' [ AWS_SESSION_TOKEN = '<aws_session_token>' ]
     | AWS_ROLE_ARN = '<aws_role_arn>' [ AWS_ROLE_EXTERNAL_ID = '<aws_role_external_id>' ] }
 
 <csv_options>:
@@ -298,15 +298,15 @@ CREATE TABLE table_write_errors(TournamentID INT, Name INT);
 
 COPY table_write_errors(TournamentID TournamentId, Name Name) FROM 's3://firebolt-publishing-public/help_center_assets/tournaments.csv'
 WITH ERROR_FILE_CREDENTIALS = (
-    AWS_KEY_ID = 'YOUR_AWS_KEY_ID'
-    AWS_SECRET_KEY = 'YOUR_AWS_SECRET_KEY'
+    AWS_ACCESS_KEY_ID = 'YOUR_AWS_ACCESS_KEY_ID'
+    AWS_SECRET_ACCESS_KEY = 'YOUR_AWS_SECRET_ACCESS_KEY'
 )
 MAX_ERRORS_PER_FILE='100%' HEADER=TRUE ERROR_FILE='s3://bucket_name/error_directory/';
 ```
 To provide your credentials in the previous example, do the following:
 
-* Replace the `<aws_key_id>` with an AWS access key that is associated with an AWS user or AWS IAM role. The AWS access key is a 20-character string such as `AKIAIOSFODNN7EXAMPLE`.
-* Replace the `<aws_secret_key>` with an AWS secret access key associated with the user or role associated with the AWS access key. The AWS secret access key is a 40-character string such as `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
+* Replace the `<aws_access_key_id>` with an AWS access key that is associated with an AWS user or AWS IAM role. The AWS access key is a 20-character string such as `AKIAIOSFODNN7EXAMPLE`.
+* Replace the `<aws_secret_access_key>` with an AWS secret access key associated with the user or role associated with the AWS access key. The AWS secret access key is a 40-character string such as `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
 
 #### Read errors from file
 

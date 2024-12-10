@@ -333,10 +333,10 @@ If you want to save your data outside of Firebolt, you can use [COPY TO](../../s
   1. AWS access key credentials. The credentials must be associated with a user with permissions to write objects to the bucket. Specify access key credentials using the following syntax:
 
   ```shell
-    CREDENTIALS = (AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>')
+    CREDENTIALS = (AWS_ACCESS_KEY_ID = '<aws_access_key_id>' AWS_SECRET_ACCESS_KEY = '<aws_secret_access_key>')
   ```
 
-  In the previous credentials example, <aws_key_id> is the AWS access key id associated with a user or role. An access key has the following form: `AKIAIOSFODNN7EXAMPLE`. The value    <aws_secret_key> is the AWS secret key. A secret key has the following form: `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
+  In the previous credentials example, \<aws_access_key_id\> is the AWS access key id associated with a user or role. An access key has the following form: `AKIAIOSFODNN7EXAMPLE`. The value \<aws_secret_access_key\> is the AWS secret key. A secret key has the following form: `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
 
 2. An AWS IAM policy statement attached to a user role. Firebolt requires the following minimum permissions in the IAM policy:
 
