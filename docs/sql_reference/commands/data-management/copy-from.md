@@ -305,8 +305,8 @@ MAX_ERRORS_PER_FILE='100%' HEADER=TRUE ERROR_FILE='s3://bucket_name/error_direct
 ```
 To provide your credentials in the previous example, do the following:
 
-* Replace the `<aws_access_key_id>` with an AWS access key that is associated with an AWS user or AWS IAM role. The AWS access key is a 20-character string such as `AKIAIOSFODNN7EXAMPLE`.
-* Replace the `<aws_secret_access_key>` with an AWS secret access key associated with the user or role associated with the AWS access key. The AWS secret access key is a 40-character string such as `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
+* Replace the `<aws_access_key_id>` with an AWS access key ID that is associated with an AWS user or AWS role. The AWS access key ID is a 20-character string such as `AKIAIOSFODNN7EXAMPLE`.
+* Replace the `<aws_secret_access_key>` with an AWS secret access key associated with an AWS user or IAM role associated with the AWS access key ID. The AWS secret access key is a 40-character string such as `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
 
 #### Read errors from file
 

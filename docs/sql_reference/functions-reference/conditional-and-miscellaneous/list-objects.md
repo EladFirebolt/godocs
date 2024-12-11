@@ -29,17 +29,17 @@ LIST_OBJECTS ( url => <url>[, aws_access_key_id => <aws_access_key_id>][, aws_se
 
 | Parameter                     | Description                                                                                      | Supported input types |
 |:------------------------------|:-------------------------------------------------------------------------------------------------|:----------------------|
-| `<url>`                       | The Amazon S3 location. The expected format is 's3://{bucket_name}/{optional_prefix}'.               | `TEXT`                |
+| `<url>`                       | The Amazon S3 location. The expected format is 's3://{bucket_name}/{optional_prefix}'.           | `TEXT`                |
 |:------------------------------|:-------------------------------------------------------------------------------------------------|:----------------------|
-| `<aws_access_key_id>`                | The AWS key ID.                                                                                      | `TEXT`                |
+| `<aws_access_key_id>`         | The AWS access key ID.                                                                                  | `TEXT`                |
 |:------------------------------|:-------------------------------------------------------------------------------------------------|:----------------------|
-| `<aws_secret_access_key>`            | The AWS secret key.                                                                                  | `TEXT`                |
-| `<aws_session_token>`            | The AWS session token.                                                                                  | `TEXT`                |
+| `<aws_secret_access_key>`     | The AWS secret access key.                                                                       | `TEXT`                |
+| `<aws_session_token>`         | The AWS session token.                                                                           | `TEXT`                |
 
 
 The AWS credential parameters, `aws_access_key_id`, `aws_secret_access_key`, and `aws_session_token` are optional, and are not required to access public buckets. 
 
-If you provide either `aws_access_key_id` or `aws_secret_access_key`, you must provide both. AWS session token is optional.
+If you provide either `aws_access_key_id` or `aws_secret_access_key`, you must provide both. Providing an AWS session token is optional.
 
 ## Return Type
 

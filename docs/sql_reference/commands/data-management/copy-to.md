@@ -60,8 +60,8 @@ Specify access key credentials using the syntax shown below.
 CREDENTIALS = (AWS_ACCESS_KEY_ID = '<aws_access_key_id>' AWS_SECRET_ACCESS_KEY = '<aws_secret_access_key>')
 ```
 
-* `<aws_access_key_id>` is the AWS access key id associated with a user or role, for example, `AKIAIOSFODNN7EXAMPLE`.
-* `<aws_secret_access_key>` is the AWS secret key, for example, `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
+* `<aws_access_key_id>` is the AWS access key ID associated with an AWS user or IAM role. For example, `AKIAIOSFODNN7EXAMPLE`.
+* `<aws_secret_access_key>` is the AWS secret access key. For example, `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`.
 
 For more information on how to create access keys, see [Creating Access Key and Secret ID](../../../Guides/loading-data/creating-access-keys-aws.md).
 
