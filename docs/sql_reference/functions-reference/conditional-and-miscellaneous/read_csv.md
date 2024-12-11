@@ -36,7 +36,7 @@ READ_CSV (
 |:------------------------------|:-------------------------------------------------------------------------------------------------|:----------------------|
 | `<url>`                       | The location of the Amazon S3 bucket containing your files. The expected format is `s3://{bucket_name}/{full_file_path}`.          | `TEXT`                |
 | `<compression>`               | The [compression type](../../commands/data-definition/create-external-table.md#compression) of the input file. If `compression` is not set, `compression` is inferred from the file extension.           | `TEXT`                |
-| `<aws_access_key_id>`                | The AWS key ID.                                                                                      | `TEXT`                |
+| `<aws_access_key_id>`                | The AWS access key ID.                                                                                      | `TEXT`                |
 | `<aws_secret_access_key>`            | The AWS secret access key.                                                                                  | `TEXT`                |
 | `<aws_session_token>`            | The AWS session token.                                                                                  | `TEXT`                |
 | `<header>`                    | Set to `TRUE` if the first row of the CSV file contains a header row containing the column names.                                 | `TEXT`                |

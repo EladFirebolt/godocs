@@ -27,7 +27,7 @@ READ_PARQUET (
 | Parameter                     | Description                                                                                      | Supported input types |
 |:------------------------------|:-------------------------------------------------------------------------------------------------|:----------------------|
 | `<url>`                       | The location of the Amazon S3 bucket containing your files. The expected format is `s3://{bucket_name}/{full_file_path}`.          | `TEXT`                |
-| `<aws_access_key_id>`                | The AWS key ID.                                                                                      | `TEXT`                |
+| `<aws_access_key_id>`                | The AWS access key ID.                                                                                      | `TEXT`                |
 | `<aws_secret_access_key>`            | The AWS secret access key.                                                                                  | `TEXT`                |
 | `<aws_session_token>`            | The AWS session token.                                                                                 | `TEXT`                |
 

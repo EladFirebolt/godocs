@@ -129,9 +129,9 @@ CREDENTIALS = (AWS_ACCESS_KEY_ID = '<aws_access_key_id>' AWS_SECRET_ACCESS_KEY =
 
 | Parameter          | Description                                             | Data type |
 |: ------------------ |: ------------------------------------------------------- |: --------- |
-| `aws_access_key_id`     | The AWS access key ID for the authorized app (Firebolt) | `TEXT `     |
-| `aws_secret_access_key` | The AWS secret access key for the app (Firebolt)        | `TEXT`      |
-| `aws_session_token` | The AWS session token for the app (Firebolt)        | `TEXT`      |
+| `aws_access_key_id`     | The AWS access key ID. | `TEXT `     |
+| `aws_secret_access_key` | The AWS secret access key.        | `TEXT`      |
+| `aws_session_token` | The AWS session token.        | `TEXT`      |
 
 {: .note}
 In case you don't have the access key and secret to access your S3 bucket, read more [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) on how to obtain them.
