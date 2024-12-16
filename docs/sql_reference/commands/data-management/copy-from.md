@@ -41,7 +41,7 @@ FROM <externalLocations>
 
 <options>:
     [ CREDENTIALS = ( <credentials> ) ] 
-    [ PATTERN = <regex_pattern> ]
+    [ PATTERN = <glob_pattern> ]
     [ TYPE = { **AUTO** | CSV | TSV | PARQUET } ]
     [ AUTO_CREATE = { **TRUE** | FALSE } ]
     [ ALLOW_COLUMN_MISMATCH = { **TRUE** | FALSE } ]
