@@ -81,7 +81,7 @@ Firebolt provides the SSO and MFA authentication methods.
 
 ### Single sign-On (SSO)
 
-[Single Sign-On (SSO)](../Guides/security/sso/sso.md) is an authentication method that allows users to access multiple applications or services using a single set of login credentials, simplifying the authentication process and improving security through centralized identity management. Firebolt uses SSO to simplify and streamline implementation of secure access to its platform, enhancing the overall security posture and protecting against unauthorized access and data breaches. SSO configuration is accessible to users with the `org_account` built-in role.
+[Single Sign-On (SSO)](../Guides/security/sso/) is an authentication method that allows users to access multiple applications or services using a single set of login credentials, simplifying the authentication process and improving security through centralized identity management. Firebolt uses SSO to simplify and streamline implementation of secure access to its platform, enhancing the overall security posture and protecting against unauthorized access and data breaches. SSO configuration is accessible to users with the `org_account` built-in role.
 
 {: .no_toc}
 
