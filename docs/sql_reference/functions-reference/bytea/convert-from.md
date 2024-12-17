@@ -91,10 +91,5 @@ CREATE TABLE text_encoded_data (a text);
 INSERT INTO text_encoded_data SELECT CONVERT_FROM(a, 'UTF-16') FROM external_bytes_data;
 SELECT * FROM text_encoded_data;
 ```
-**Returns**
-
-| a (TEXT) |
-|:---------|
-| 'ሒ1�'    |
 
 In the previous code example, you can replace the `UTF-16` input encoding with another encoding supported by the [ICU library](https://icu.unicode.org/).
