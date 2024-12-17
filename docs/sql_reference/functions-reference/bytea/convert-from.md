@@ -70,7 +70,7 @@ SELECT CONVERT_FROM('\x31a031ffffffff'::BYTEA, 'windows-1252');
 
 The result, `1 1ÿÿÿÿ`, consists of:
 * `1`, the windows-1252 representation of `31`.
-* ` `, the windows-1252 representation of the ([non-breaking space character](https://en.wikipedia.org/wiki/Non-breaking_space)) a0.
+* ` `, the windows-1252 representation of the [non-breaking space character](https://en.wikipedia.org/wiki/Non-breaking_space) a0.
 * `ÿ`, the windows-1252 representation of `ff`.
 
 **Example**
