@@ -75,44 +75,25 @@ The result, `1 1ÿÿÿÿ`, consists of:
 
 **Example**
 
-The following code example creates an external table with a `BYTEA` column that represents text data in a custom encoding that is specified during data loading:
+The following code example creates a table (represents external table) with a `BYTEA` column that represents text data in a custom encoding that is specified during data loading:
 
 ```sql
-CREATE EXTERNAL TABLE ext_table_bytea (
-    col_bytea BYTEA
-)
-URL = 's3://my_bucket/my_folder/'
-OBJECT_PATTERN = '*.parquet'
-TYPE = PARQUET;
+CREATE TABLE external_bytes_data (a bytea);
+INSERT INTO external_bytes_data VALUES ('\x1212003100');
 ```
 
 **Example**
 
-The following code example creates an external table with `TEXT` columns in database encoding `UTF-8`:
+The following code example converts the `BYTEA` column `col_bytea` into `TEXT` using the specified encoding `UTF-16`, and inserts it into `text_encoded_data` target table:
 
 ```sql
-CREATE EXTERNAL TABLE ext_table_text (
-    col_text TEXT
-)
-URL = 's3://my_bucket/my_folder/'
-OBJECT_PATTERN = '*.csv'
-CREDENTIALS = (AWS_KEY_ID = 'your_key_id' AWS_SECRET_KEY = 'your_secret_key')
-SKIP_HEADER = 1
-ENCODING = 'UTF-8'
-TYPE = CSV;
+CREATE TABLE text_encoded_data (a text);
+INSERT INTO text_encoded_data SELECT CONVERT_FROM(a, 'UTF-16') FROM external_bytes_data;
+SELECT * FROM text_encoded_data;
 ```
 
-**Example**
+| a (TEXT) |
+|:---------|
+| 'ሒ1�'    |
 
-The following code example converts the `BYTEA` column `col_bytea` into `TEXT` using the specified encoding `UTF-8`, and inserts it into `target_table`:
-
-```sql
-CREATE TABLE target_table (
-    col_text TEXT
-);
-INSERT INTO target_table
-SELECT CONVERT_FROM(col_bytea, 'UTF-8') AS col_text
-FROM ext_table_bytea;
-```
-
-In the previous code example, you can replace the `UTF-8` encoding with another encoding supported by the [ICU library](https://icu.unicode.org/).
+In the previous code example, you can replace the `UTF-16` input encoding with another encoding supported by the [ICU library](https://icu.unicode.org/).
