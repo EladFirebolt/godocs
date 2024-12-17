@@ -75,7 +75,7 @@ The result, `1 1ÿÿÿÿ`, consists of:
 
 **Example**
 
-The following code example creates an external table with a `BYTEA` column that represents text data in a custom encoding that is specified during data loading:
+The following code example creates a table, which represents an external table, with a `BYTEA` column that represents text data in a custom encoding that is specified during data loading:
 
 ```sql
 CREATE EXTERNAL TABLE ext_table_bytea (
