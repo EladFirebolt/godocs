@@ -31,7 +31,6 @@ Added the following aggregate functions:
 * `PERCENTILE_CONT` calculates a specified percentile of values in an ordered dataset.
 * `MEDIAN` returns the median of a given column. It is equivalent to `PERCENTILE_CONT(0.5)`: half the values in the column are smaller, and half are bigger than the returned value. If the number of values in the column is even, `MEDIAN` returns the arithmetic mean of the two middle values.
 
-
 **Added support to meet HIPAA regulations for health information**
 Added [support to meet federal HIPAA regulations](../../Overview/security#hipaa-compliance) to ensure the confidentiality, integrity, and availability of electronic protected health information within the Firebolt platform.
 

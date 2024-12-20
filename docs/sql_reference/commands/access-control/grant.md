@@ -17,7 +17,7 @@ For more information, see [Role-based access control]({% link Guides/security/rb
 Grants a permission to a role.
 
 {: .note}
-Only an account_admin or a role owner can grant a permission to a role. To grant a permission, you must first have that permission granted to you.
+Only account_admin or a role owner can grant a permission to a role. To grant a permission, you must first have that permission granted to you.
 
 ### Syntax
 
@@ -64,7 +64,11 @@ USE DATABASE db;
 GRANT SELECT ON TABLE my_table IN SCHEMA public TO user_role;
 ```
 
+<<<<<<< HEAD
 **Grant access to a database, schema, and all operations on a specific table**
+=======
+**Grant access to a databse, schema, and all operations on a specific table**
+>>>>>>> gh-pages
 
 The following code example grants the role `user_role` access to the `db` database, the `public` schema within the `db` database, and all permissions on the `my_table` table in the `public` schema:
 
