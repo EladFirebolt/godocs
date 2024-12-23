@@ -1,4 +1,4 @@
-## DB version 4.8
+## Firebolt Release Notes - Version 4.8
 
 ### New Features
 
@@ -34,7 +34,6 @@ Added the following aggregate functions:
 **Added support to meet HIPAA regulations for health information**
 Added [support to meet federal HIPAA regulations](../../Overview/security#hipaa-compliance) to ensure the confidentiality, integrity, and availability of electronic protected health information within the Firebolt platform.
 
-
 ### Performance Improvements
 
 <!-- Auto Generated Markdown for FIR-36922 - Owned by Ori Brostovski -->
@@ -42,22 +41,10 @@ Added [support to meet federal HIPAA regulations](../../Overview/security#hipaa-
 Improved expression comparison logic to better recognize identical expressions within queries. This enhancement supports a broader range of queries and boosts the overall quality of query plans.
 
 <!-- Auto Generated Markdown for FIR-37388 - Owned by Arsenii Krasikov -->
-### Improving cold reads by reducing the amount of Amazon S3 requests needed to load data
+**Improving cold reads by reducing the amount of Amazon S3 requests needed to load data**
 Improved the performance of cold reads by minimizing the number of Amazon S3 requests required to load data. In the case of tiny tablets, this improvement lead to a 50% improvement in performance.
 
-## Bug Fixes
-
-<!-- Auto Generated Markdown for FIR-36835 - Owned by Michael Freitag -->
-### System improvements and stability enhancements
-The following improvements increased the performance and stability of the Firebolt platform:
-
-* Addressed an issue that could cause queries to hang under certain conditions, improving the overall stability of the database.
-* Resolved an issue that caused database backup operations to fail intermittently, ensuring successful and error-free backups.
-* Simplified the logging process for clearer, more informative logs, aiding in troubleshooting.
-* Improved query runtimes by optimizing query planning, delivering faster query performance.
-* Removed deprecated functions to maintain system integrity.
-* Update encryption protocols for enhanced security, offering better data protection against unauthorized access.
-
+### Bug Fixes
 
 <!-- Auto Generated Markdown for FIR-37268 - Owned by Zhen Li -->
 **Fixed a bug preventing view creation with type conversions to array types**
